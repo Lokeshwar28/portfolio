@@ -40,7 +40,7 @@ const About = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-secondary dark:bg-secondary bg-light text-white dark:text-white text-black px-4 py-8 sm:px-6 md:px-12 lg:px-20">
+    <div className="w-full min-h-screen bg-light dark:bg-secondary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-10">About Me</h2>
 

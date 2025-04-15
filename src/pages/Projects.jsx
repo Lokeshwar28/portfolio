@@ -30,7 +30,7 @@ const projectList = [
 
 const Projects = () => {
   return (
-    <div className="w-full min-h-screen bg-primary dark:bg-primary bg-light text-white dark:text-white text-black px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-all">
+    <div className="w-full min-h-screen bg-light dark:bg-primary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-colors duration-300">
       <motion.h2
         className="text-4xl font-bold mb-12 text-center text-accent"
         initial={{ opacity: 0, y: -30 }}

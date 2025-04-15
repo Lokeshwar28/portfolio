@@ -16,11 +16,11 @@ const Home = () => {
   }, [titles.length]);
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden bg-light dark:bg-primary transition-colors duration-300">
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full dark:bg-black bg-light bg-[url('/stars.svg')] bg-cover opacity-20 animate-pulse-slow" />
       </div>
-      <div className="w-full min-h-screen z-10 relative bg-primary dark:bg-primary bg-light text-white dark:text-white text-black px-4 py-8 sm:px-6 md:px-12 lg:px-20 flex items-center justify-center">
+      <div className="w-full min-h-screen z-10 relative text-white dark:text-white text-black px-4 py-8 sm:px-6 md:px-12 lg:px-20 flex items-center justify-center">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -40 }}

@@ -15,9 +15,9 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary dark:bg-secondary bg-light text-white dark:text-white text-black p-4 flex justify-between items-center sticky top-0 z-50 transition">
+    <header className="bg-light dark:bg-secondary text-black dark:text-white p-4 flex justify-between items-center sticky top-0 z-50 transition-colors duration-300">
       <h1 className="text-xl font-bold tracking-wide">
-        <NavLink to="/" className="hover:text-accent text-black dark:text-white">Lokeshwar <span className="text-accent">Reddy</span></NavLink>
+        <NavLink to="/" className="hover:text-accent text-black dark:text-white transition-colors">Lokeshwar <span className="text-accent">Reddy</span></NavLink>
       </h1>
       <nav>
         <NavLink

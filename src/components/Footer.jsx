@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => (
-    <footer className="bg-secondary dark:bg-secondary bg-light text-white dark:text-white text-black text-center p-4 transition">
+    <footer className="bg-light dark:bg-secondary text-black dark:text-white text-center p-4 transition-colors duration-300">
       <hr className="border-t border-gray-600 mb-4" />
       <div className="flex justify-center gap-4 mb-2">
         <a href="https://github.com/Lokeshwar28" target="_blank" rel="noopener noreferrer">

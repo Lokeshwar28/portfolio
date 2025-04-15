@@ -17,7 +17,7 @@ const educationData = [
 
 const Education = () => {
   return (
-    <div className="w-full min-h-screen bg-primary dark:bg-primary bg-light text-white dark:text-white text-black px-4 py-8 sm:px-6 md:px-12 lg:px-20 flex flex-col items-center">
+    <div className="w-full min-h-screen bg-light dark:bg-primary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 flex flex-col items-center transition-colors duration-300">
         
       <p className="text-center text-accent text-xl font-semibold mb-2">🎓 My Academic Journey</p>
       <h2 className="text-4xl font-bold text-center mb-10">Education</h2>

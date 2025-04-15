@@ -14,8 +14,8 @@ const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
           className="w-full h-40 object-cover rounded mb-4"
         />
       )}
-      <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-      <p className="text-sm mb-4">{description}</p>
+      <h3 className="text-2xl font-semibold mb-2 text-black dark:text-white">{title}</h3>
+      <p className="text-sm mb-4 text-gray-700 dark:text-gray-300">{description}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
         {techStack.map((tech, index) => (

@@ -58,7 +58,7 @@ const Skills = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full min-h-screen bg-secondary dark:bg-secondary bg-light text-white dark:text-white text-black px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-all"
+      className="w-full min-h-screen bg-light dark:bg-secondary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-colors duration-300"
     >
       <p className="text-center text-accent text-xl font-semibold mb-2">🛠️ What I Use</p>
       <h2 className="text-4xl font-bold mb-12 text-center">Technical Skills</h2>
