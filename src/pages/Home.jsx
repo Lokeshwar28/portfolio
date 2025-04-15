@@ -57,7 +57,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-4 text-xl md:text-2xl font-medium"
+            className="mt-4 text-xl md:text-2xl font-medium text-black dark:text-white"
           >
             <Typewriter
               words={titles}
