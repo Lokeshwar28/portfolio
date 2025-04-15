@@ -4,8 +4,8 @@ const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="bg-gray-800 hover:bg-gray-700 text-white rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 hover:shadow-blue-500/30 duration-300 ease-in-out"
+      transition={{ type: "spring", stiffness: 300, duration: 0.3 }}
+      className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-white rounded-lg p-6 shadow-lg border border-gray-300 dark:border-gray-700 hover:border-accent hover:shadow-accent/30 duration-300 ease-in-out"
     >
       {image && (
         <img
@@ -21,7 +21,7 @@ const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
         {techStack.map((tech, index) => (
           <span
             key={index}
-            className="bg-gray-700 text-xs px-2 py-1 rounded-full"
+            className="bg-indigo-200 dark:bg-indigo-600/30 text-xs px-2 py-1 rounded-full text-black dark:text-white backdrop-blur-sm"
           >
             {tech}
           </span>
@@ -34,7 +34,7 @@ const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
             href={link}
             target="_blank"
             rel="noreferrer"
-            className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded"
+            className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-black dark:text-white text-sm font-semibold px-4 py-2 rounded shadow-md transition duration-300"
           >
             GitHub
           </a>
@@ -44,7 +44,7 @@ const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
             href={demo}
             target="_blank"
             rel="noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded"
+            className="bg-accent hover:bg-highlight text-white text-sm font-semibold px-4 py-2 rounded shadow-md transition duration-300"
           >
             Live Demo
           </a>
