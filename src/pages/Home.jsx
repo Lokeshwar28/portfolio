@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
 import { useInView } from 'react-intersection-observer';
 import SEO from '../components/SEO';
+import Testimonials from '../components/Testimonials';
 
 const Home = () => {
   const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Passionate Problem Solver"];
@@ -263,6 +264,9 @@ const Home = () => {
           </div>
         </motion.div>
       </div>
+      
+      {/* Testimonials Section */}
+      <Testimonials />
     </>
   );
 };
