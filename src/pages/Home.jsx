@@ -1,22 +1,20 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
+import SEO from '../components/SEO';
 
 const Home = () => {
   const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Passionate Problem Solver"];
-  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [titles.length]);
-
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-light dark:bg-primary transition-colors duration-300">
+    <>
+      <SEO 
+        title="Home - Lokeshwar Reddy"
+        description="Full-Stack Web Developer specializing in React, Node.js, and AWS. Passionate about building scalable, modern web applications with cutting-edge technologies."
+        keywords="Lokeshwar Reddy, Full-Stack Developer, React Developer, Node.js Developer, JavaScript, AWS, Web Development, Software Engineer"
+      />
+      <div className="relative w-full min-h-screen overflow-hidden bg-light dark:bg-primary transition-colors duration-300">
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full dark:bg-black bg-light bg-[url('/stars.svg')] bg-cover opacity-20 animate-pulse-slow" />
       </div>
@@ -28,7 +26,7 @@ const Home = () => {
             transition={{ duration: 1 }}
             className="text-4xl md:text-5xl font-extrabold text-accent"
           >
-            Hey, I'm Lokesh 👋
+            Hey, I&apos;m Lokesh 👋
           </motion.h1>
 
           <div className="my-6 flex justify-center">
@@ -107,7 +105,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

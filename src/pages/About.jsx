@@ -64,7 +64,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          I'm a results-driven Full-Stack Developer specializing in building scalable, high-performance web applications using React, Node.js, PostgreSQL, and AWS.
+          I&apos;m a results-driven Full-Stack Developer specializing in building scalable, high-performance web applications using React, Node.js, PostgreSQL, and AWS.
         </motion.p>
         <motion.p
           className="text-lg md:text-xl max-w-3xl mx-auto text-center mb-12 text-gray-700 dark:text-gray-300"
