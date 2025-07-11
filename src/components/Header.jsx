@@ -1,7 +1,6 @@
-import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const Header = () => {
+const Header = ({ activeSection, onNavigate }) => {
   const [isDark, setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -15,10 +14,31 @@ const Header = () => {
     setIsDark(prev => !prev);
   };
 
+  const navigationItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'education', label: 'Education' },
+    { id: 'certifications', label: 'Certifications' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  const handleNavClick = (sectionId) => {
+    onNavigate(sectionId);
+    setMenuOpen(false); // Close mobile menu
+  };
+
   return (
-    <header className="bg-light dark:bg-secondary text-black dark:text-white p-4 flex flex-wrap justify-between items-center sticky top-0 z-50 transition-colors duration-300">
+    <header className="bg-light dark:bg-secondary text-black dark:text-white p-4 flex flex-wrap justify-between items-center sticky top-0 z-50 transition-colors duration-300 shadow-md">
       <h1 className="text-xl font-bold tracking-wide">
-        <NavLink to="/" className="hover:text-accent text-black dark:text-white transition-colors">Lokeshwar <span className="text-accent">Reddy</span></NavLink>
+        <button 
+          onClick={() => handleNavClick('home')}
+          className="hover:text-accent text-black dark:text-white transition-colors"
+        >
+          Lokeshwar <span className="text-accent">Reddy</span>
+        </button>
       </h1>
       <div className="md:hidden">
         <button
@@ -30,22 +50,19 @@ const Header = () => {
       </div>
       <nav className={`${menuOpen ? "block animate-fade-in" : "hidden"} w-full mt-4 md:mt-0 md:block md:w-auto transition-all duration-300`}>
         <div className="flex flex-col md:flex-row">
-          {["/", "/about", "/projects", "/skills", "/education", "/contact"].map((path, idx) => {
-            const names = ["Home", "About", "Projects", "Skills", "Education", "Contact"];
-            return (
-              <NavLink
-                key={path}
-                to={path}
-                className={({ isActive }) =>
-                  isActive
-                    ? "mx-2 my-1 text-accent font-semibold"
-                    : "mx-2 my-1 hover:text-gray-600 dark:hover:text-gray-300"
-                }
-              >
-                {names[idx]}
-              </NavLink>
-            );
-          })}
+          {navigationItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleNavClick(item.id)}
+              className={`mx-2 my-1 px-3 py-1 rounded transition-colors duration-300 ${
+                activeSection === item.id
+                  ? "text-accent font-semibold bg-accent/10"
+                  : "hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       </nav>
       <button

@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 
-
 const About = () => {
   const timeline = [
     {
       year: "2025",
-      title: "Software Developer Intern (Goal)",
+      title: "Recently Graduated with M.S. in Computer Science",
       description:
-        "Aiming to apply my full-stack skills in a dynamic tech environment and deliver scalable solutions.",
+        "Completed Master's degree from Texas Tech University (May 2025). Actively seeking Software Engineer opportunities.",
     },
     {
       year: "2024",
@@ -31,9 +30,9 @@ const About = () => {
 
   const getIcon = (year) => {
     switch (year) {
-      case "2025": return "🚀";
+      case "2025": return "🎓";
       case "2024": return "🏆";
-      case "2023": return "🎓";
+      case "2023": return "📚";
       case "2019 - 2023": return "📘";
       default: return "📌";
     }
@@ -59,24 +58,34 @@ const About = () => {
         <h3 className="text-center text-accent text-xl font-semibold mb-4">👨‍💻 Who Am I?</h3>
         
         <motion.p
-          className="text-lg md:text-xl max-w-3xl mx-auto text-center mb-4 text-gray-700 dark:text-gray-300"
+          className="text-lg md:text-xl max-w-4xl mx-auto text-center mb-4 text-gray-700 dark:text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          I'm a results-driven Full-Stack Developer specializing in building scalable, high-performance web applications using React, Node.js, PostgreSQL, and AWS.
+          Recent Computer Science graduate with full-stack expertise in designing and building scalable, innovative systems. 
+          Proven track record in optimizing API performance by 30% and enhancing database efficiency by 25% while delivering robust cloud solutions.
         </motion.p>
         <motion.p
-          className="text-lg md:text-xl max-w-3xl mx-auto text-center mb-12 text-gray-700 dark:text-gray-300"
+          className="text-lg md:text-xl max-w-4xl mx-auto text-center mb-4 text-gray-700 dark:text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
         >
-          With a strong foundation in both front-end and back-end development, I design and implement clean, maintainable code that enhances user experience and system reliability. My projects reflect a commitment to continuous learning and delivering real-world impact.
+          Currently seeking Software Engineer opportunities where I can apply my expertise in React, Node.js, PostgreSQL, and AWS 
+          to create impactful solutions that enhance user experience and drive business growth.
+        </motion.p>
+        <motion.p
+          className="text-lg max-w-3xl mx-auto text-center mb-12 text-gray-700 dark:text-gray-300"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+        >
+          🏙️ Based in <strong>Dallas, TX</strong> | 📧 lokeshwar2808@gmail.com | 📱 +1 (806) 702-1554
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-3 text-sm text-black dark:text-white mb-12">
-          {["React", "Node.js", "PostgreSQL", "AWS", "Tailwind", "EJS"].map((tech, i) => (
+          {["React", "Node.js", "PostgreSQL", "AWS", "TypeScript", "Tailwind CSS", "Express.js", "Redux"].map((tech, i) => (
             <span key={i} className="px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-full shadow-sm border border-gray-600">
               {tech}
             </span>
@@ -84,11 +93,12 @@ const About = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-8 text-accent">🎯 Professional Timeline</h3>
           <div className="relative before:absolute before:left-[6px] before:top-0 before:bottom-0 before:w-0.5 before:bg-accent">
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
-                className="relative"
+                className="relative mb-8 pl-8"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}

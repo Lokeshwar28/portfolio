@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
-  const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Passionate Problem Solver"];
+  const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Recent Computer Science Graduate"];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,6 +12,13 @@ const Home = () => {
     }, 2500);
     return () => clearInterval(interval);
   }, [titles.length]);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden bg-light dark:bg-primary transition-colors duration-300">
@@ -41,12 +46,11 @@ const Home = () => {
 
           <div className="flex justify-center gap-6 mt-4">
             <a href="https://github.com/Lokeshwar28" target="_blank" rel="noopener noreferrer">
-              
-            <img src="/icons/github.svg" alt="GitHub" className="w-6 h-6 hover:scale-110 transition duration-300" />
+              <img src="/icons/github.svg" alt="GitHub" className="w-6 h-6 hover:scale-110 transition duration-300" />
             </a>
             <a href="https://www.linkedin.com/in/lokesh-reddy-g/" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
-           alt="LinkedIn" className="w-6 h-6 hover:scale-110 transition duration-300" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+                alt="LinkedIn" className="w-6 h-6 hover:scale-110 transition duration-300" />
             </a>
             <a href="/resume.pdf" download>
               <img src="/icons/resume.svg" alt="Resume" className="w-6 h-6 hover:scale-110 transition duration-300" />
@@ -76,34 +80,47 @@ const Home = () => {
             transition={{ duration: 1.2, delay: 0.3 }}
           >
             <p className="mt-3 text-lg md:text-xl text-gray-600 dark:text-gray-400">
-              Crafting fast, secure, and modern web apps with JavaScript, React, Node.js, and PostgreSQL.
+              Recent CS graduate from Texas Tech University, actively seeking Software Engineer opportunities.
             </p>
 
             <p className="mt-2 text-base md:text-lg text-gray-700 dark:text-gray-300">
-              I specialize in building performant, scalable full-stack applications with modern technologies.
+              Specializing in building performant, scalable full-stack applications with React, Node.js, and AWS.
             </p>
           </motion.div>
 
           <div className="mt-10 flex justify-center gap-6 animate-bounce-slow">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" alt="React" className="w-10 h-10" />
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
-           alt="Node.js" className="w-10 h-10" />
-            
+              alt="Node.js" className="w-10 h-10" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg"
-           alt="PostgreSQL" className="w-10 h-10" />
+              alt="PostgreSQL" className="w-10 h-10" />
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            onClick={() => navigate("/projects")}
-            className="mt-10 px-8 py-3 bg-accent hover:bg-highlight text-white font-semibold rounded-lg shadow-xl transition duration-300"
-          >
-            Explore My Work <span className="ml-2">🚀</span>
-          </motion.button>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onClick={() => scrollToSection("projects")}
+              className="px-8 py-3 bg-accent hover:bg-highlight text-white font-semibold rounded-lg shadow-xl transition duration-300"
+            >
+              Explore My Work <span className="ml-2">🚀</span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onClick={() => scrollToSection("contact")}
+              className="px-8 py-3 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold rounded-lg transition duration-300"
+            >
+              Get In Touch <span className="ml-2">📧</span>
+            </motion.button>
+          </div>
           
           <div className="absolute bottom-6 w-full flex justify-center">
-            <div className="animate-bounce text-gray-500 dark:text-gray-400 text-sm">↓ Scroll down</div>
+            <motion.button
+              onClick={() => scrollToSection("about")}
+              className="animate-bounce text-gray-500 dark:text-gray-400 text-sm hover:text-accent transition-colors cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+            >
+              ↓ Learn More About Me
+            </motion.button>
           </div>
         </div>
       </div>
