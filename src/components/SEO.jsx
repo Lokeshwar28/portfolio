@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
-const SEO = ({ 
+const SEO = ({
   title = "Lokeshwar Reddy - Full-Stack Developer",
   description = "Full-Stack Developer specializing in React, Node.js, and AWS. Building scalable web applications with modern technologies.",
   keywords = "Full-Stack Developer, React, Node.js, JavaScript, AWS, PostgreSQL, Web Development, Software Engineer",
@@ -8,78 +8,99 @@ const SEO = ({
   url = "https://lokeshwar-portfolio.vercel.app",
   type = "website"
 }) => {
-  const fullTitle = title.includes("Lokeshwar") ? title : `${title} | Lokeshwar Reddy`;
-  const imageUrl = image.startsWith('http') ? image : `${url}${image}`;
+  useEffect(() => {
+    const fullTitle = title.includes("Lokeshwar") ? title : `${title} | Lokeshwar Reddy`;
+    document.title = fullTitle;
 
-  return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content="Lokeshwar Reddy" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="robots" content="index, follow" />
-      <meta name="language" content="English" />
-      <meta name="theme-color" content="#3b82f6" />
-      
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={imageUrl} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:locale" content="en_US" />
-      
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={imageUrl} />
-      <meta property="twitter:creator" content="@lokeshwar" />
-      
-      {/* Additional SEO */}
-      <link rel="canonical" href={url} />
-      <meta name="format-detection" content="telephone=no" />
-      <meta name="application-name" content="Lokeshwar Portfolio" />
-      <meta name="apple-mobile-web-app-title" content="Lokeshwar Portfolio" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      
-      {/* Structured Data - JSON-LD */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Lokeshwar Reddy",
-          "jobTitle": "Full-Stack Developer",
-          "description": description,
-          "url": url,
-          "image": imageUrl,
-          "sameAs": [
-            "https://github.com/Lokeshwar28",
-            "https://www.linkedin.com/in/lokesh-reddy-g/"
-          ],
-          "knowsAbout": [
-            "React.js",
-            "Node.js", 
-            "JavaScript",
-            "PostgreSQL",
-            "AWS",
-            "Full-Stack Development",
-            "Web Development"
-          ],
-          "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "Texas Tech University"
-          }
-        })}
-      </script>
-    </Helmet>
-  );
+    // Helper to add/update meta tag
+    function upsertMeta(name, content, property = false) {
+      let meta = document.querySelector(property ? `meta[property="${name}"]` : `meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        property ? meta.setAttribute('property', name) : meta.setAttribute('name', name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    }
+
+    upsertMeta('description', description);
+    upsertMeta('keywords', keywords);
+    upsertMeta('author', 'Lokeshwar Reddy');
+    upsertMeta('viewport', 'width=device-width, initial-scale=1.0');
+    upsertMeta('robots', 'index, follow');
+    upsertMeta('language', 'English');
+    upsertMeta('theme-color', '#3b82f6');
+
+    // Open Graph
+    upsertMeta('og:type', type, true);
+    upsertMeta('og:url', url, true);
+    upsertMeta('og:title', fullTitle, true);
+    upsertMeta('og:description', description, true);
+    upsertMeta('og:image', image.startsWith('http') ? image : `${url}${image}`, true);
+    upsertMeta('og:image:width', '1200', true);
+    upsertMeta('og:image:height', '630', true);
+    upsertMeta('og:locale', 'en_US', true);
+
+    // Twitter
+    upsertMeta('twitter:card', 'summary_large_image', true);
+    upsertMeta('twitter:url', url, true);
+    upsertMeta('twitter:title', fullTitle, true);
+    upsertMeta('twitter:description', description, true);
+    upsertMeta('twitter:image', image.startsWith('http') ? image : `${url}${image}`, true);
+    upsertMeta('twitter:creator', '@lokeshwar', true);
+
+    // Canonical link
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', url);
+
+    // Application meta
+    upsertMeta('format-detection', 'telephone=no');
+    upsertMeta('application-name', 'Lokeshwar Portfolio');
+    upsertMeta('apple-mobile-web-app-title', 'Lokeshwar Portfolio');
+    upsertMeta('apple-mobile-web-app-capable', 'yes');
+    upsertMeta('apple-mobile-web-app-status-bar-style', 'default');
+
+    // Structured Data (JSON-LD)
+    let script = document.querySelector('script[type="application/ld+json"]');
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lokeshwar Reddy",
+      "jobTitle": "Full-Stack Developer",
+      "description": description,
+      "url": url,
+      "image": image.startsWith('http') ? image : `${url}${image}`,
+      "sameAs": [
+        "https://github.com/Lokeshwar28",
+        "https://www.linkedin.com/in/lokesh-reddy-g/"
+      ],
+      "knowsAbout": [
+        "React.js",
+        "Node.js", 
+        "JavaScript",
+        "PostgreSQL",
+        "AWS",
+        "Full-Stack Development",
+        "Web Development"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Texas Tech University"
+      }
+    });
+  }, [title, description, keywords, image, url, type]);
+
+  return null; // No UI needed, just updates <head>
 };
 
 export default SEO;
