@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
+const ProjectCard = ({ title, description, techStack, image, link, demo, duration, metrics }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -15,7 +15,26 @@ const ProjectCard = ({ title, description, techStack, image, link, demo }) => {
         />
       )}
       <h3 className="text-2xl font-semibold mb-2 text-black dark:text-white">{title}</h3>
+      {duration && (
+        <p className="text-sm font-medium text-accent mb-2">{duration}</p>
+      )}
       <p className="text-sm mb-4 text-gray-700 dark:text-gray-300">{description}</p>
+
+      {metrics && metrics.length > 0 && (
+        <div className="mb-4">
+          <h4 className="text-sm font-semibold text-accent mb-2">Key Achievements:</h4>
+          <div className="flex flex-wrap gap-1">
+            {metrics.map((metric, index) => (
+              <span
+                key={index}
+                className="bg-green-200 dark:bg-green-600/30 text-xs px-2 py-1 rounded-full text-black dark:text-white backdrop-blur-sm"
+              >
+                {metric}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-2 mb-4">
         {techStack.map((tech, index) => (

@@ -59,20 +59,12 @@ const About = () => {
         <h3 className="text-center text-accent text-xl font-semibold mb-4">👨‍💻 Who Am I?</h3>
         
         <motion.p
-          className="text-lg md:text-xl max-w-3xl mx-auto text-center mb-4 text-gray-700 dark:text-gray-300"
+          className="text-lg md:text-xl max-w-3xl mx-auto text-center mb-12 text-gray-700 dark:text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          I'm a results-driven Full-Stack Developer specializing in building scalable, high-performance web applications using React, Node.js, PostgreSQL, and AWS.
-        </motion.p>
-        <motion.p
-          className="text-lg md:text-xl max-w-3xl mx-auto text-center mb-12 text-gray-700 dark:text-gray-300"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          With a strong foundation in both front-end and back-end development, I design and implement clean, maintainable code that enhances user experience and system reliability. My projects reflect a commitment to continuous learning and delivering real-world impact.
+          Software Engineer with full-stack expertise in designing and building scalable, innovative systems. Proven track record in optimizing API performance by 30% and enhancing database efficiency by 25% while delivering robust cloud solutions.
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-3 text-sm text-black dark:text-white mb-12">
@@ -83,23 +75,105 @@ const About = () => {
           ))}
         </div>
 
+        {/* Experience Section */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <h3 className="text-2xl font-bold text-center mb-8 text-accent">💼 Professional Experience</h3>
+          <motion.div
+            className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h4 className="text-xl font-bold text-accent">Full Stack Developer (Graduate Assistant)</h4>
+                <h5 className="text-lg font-semibold">IT Help Central - Texas Tech University</h5>
+              </div>
+              <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Sept 2023 - May 2025</span>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-start">
+                <span className="text-accent font-bold mr-2">•</span>
+                <p className="text-gray-700 dark:text-gray-300">Designed internal web tools using OOP principles (JavaScript, HTML, CSS, PHP, SQL Server) for 20+ staff</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-accent font-bold mr-2">•</span>
+                <p className="text-gray-700 dark:text-gray-300">Developed reusable UI components across 5+ applications, reducing development time by 15-20%</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-accent font-bold mr-2">•</span>
+                <p className="text-gray-700 dark:text-gray-300">Automated data processes saving 10 hours weekly with improved accuracy</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-accent font-bold mr-2">•</span>
+                <p className="text-gray-700 dark:text-gray-300">Optimized SQL queries achieving 25% improvement in data retrieval times</p>
+              </div>
+              <div className="flex items-start">
+                <span className="text-accent font-bold mr-2">•</span>
+                <p className="text-gray-700 dark:text-gray-300">Collaborated in Agile/Scrum environment with Git version control</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Education Section */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <h3 className="text-2xl font-bold text-center mb-8 text-accent">🎓 Education</h3>
+          <div className="space-y-6">
+            <motion.div
+              className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+                <div>
+                  <h4 className="text-lg font-bold text-accent">Texas Tech University</h4>
+                  <h5 className="text-base font-semibold">M.S. Computer Science</h5>
+                </div>
+                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Aug 2023 - May 2025</span>
+              </div>
+            </motion.div>
+            <motion.div
+              className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+                <div>
+                  <h4 className="text-lg font-bold text-accent">Malla Reddy College of Engineering & Technology</h4>
+                  <h5 className="text-base font-semibold">B.Tech ECE</h5>
+                </div>
+                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Jul 2019 - May 2023</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
         <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-8 text-accent">📈 Journey Timeline</h3>
           <div className="relative before:absolute before:left-[6px] before:top-0 before:bottom-0 before:w-0.5 before:bg-accent">
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
-                className="relative"
+                className="relative pb-8"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
                 <div className="absolute -left-3 top-1.5 w-3 h-3 rounded-full bg-accent animate-ping" />
-                <h4 className="text-xl font-bold text-accent mb-1">
-                  {getIcon(item.year)} {item.year}
-                </h4>
-                <h5 className="text-lg font-semibold mb-1">{item.title}</h5>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+                <div className="ml-6">
+                  <h4 className="text-xl font-bold text-accent mb-1">
+                    {getIcon(item.year)} {item.year}
+                  </h4>
+                  <h5 className="text-lg font-semibold mb-1">{item.title}</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>

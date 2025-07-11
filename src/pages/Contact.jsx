@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
   return (
     <div className="w-full min-h-screen bg-light dark:bg-primary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-colors duration-300">
       <p className="text-center text-accent text-xl font-semibold mb-2">📬 Get in Touch</p>
       <h2 className="text-4xl font-bold text-center mb-6">Contact Me</h2>
+      
+      {/* Contact Information */}
+      <div className="max-w-2xl mx-auto mb-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="flex items-center justify-center md:justify-start">
+            <FaMapMarkerAlt className="text-accent text-xl mr-3" />
+            <span className="text-lg">Lubbock, TX</span>
+          </div>
+          <div className="flex items-center justify-center md:justify-start">
+            <FaPhone className="text-accent text-xl mr-3" />
+            <span className="text-lg">+1 (806) 702-1554</span>
+          </div>
+        </div>
+        <div className="flex items-center justify-center mb-6">
+          <FaEnvelope className="text-accent text-xl mr-3" />
+          <span className="text-lg">lokeshwar2808@gmail.com</span>
+        </div>
+      </div>
       
       <div className="flex justify-center gap-6 my-6">
         <a href="https://github.com/Lokeshwar28" target="_blank" rel="noopener noreferrer">

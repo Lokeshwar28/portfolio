@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
-  const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Passionate Problem Solver"];
+  const titles = ["Full-Stack Developer", "Software Engineer", "Graduate Assistant @ Texas Tech"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -76,11 +76,11 @@ const Home = () => {
             transition={{ duration: 1.2, delay: 0.3 }}
           >
             <p className="mt-3 text-lg md:text-xl text-gray-600 dark:text-gray-400">
-              Crafting fast, secure, and modern web apps with JavaScript, React, Node.js, and PostgreSQL.
+              Software Engineer with full-stack expertise in designing and building scalable, innovative systems.
             </p>
 
             <p className="mt-2 text-base md:text-lg text-gray-700 dark:text-gray-300">
-              I specialize in building performant, scalable full-stack applications with modern technologies.
+              Proven track record in optimizing API performance by 30% and enhancing database efficiency by 25% while delivering robust cloud solutions.
             </p>
           </motion.div>
 

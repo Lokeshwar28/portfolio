@@ -3,28 +3,34 @@ import ProjectCard from "../components/ProjectCard";
 
 const projectList = [
   {
-    title: "E-Commerce Platform",
-    description: "Developed a scalable full-stack e-commerce application featuring secure JWT-based authentication, efficient REST APIs with Express, and deployment on AWS EC2. Integrated product management, shopping cart, and real-time order tracking. Frontend built with React and Tailwind CSS; optimized for performance and responsiveness.",
-    techStack: ["React", "Node.js", "Express","AWS(EC2)", "PostgreSQL", "JWT" , "Tailwind CSS" , "Vercel"],
+    title: "E-Commerce Platform (Full-Stack)",
+    description: "React.js, Node.js/Express.js, PostgreSQL, AWS EC2 - Built a comprehensive e-commerce platform with JWT authentication, cart/checkout system, and real-time order tracking for 1,000+ users. Achieved 30% API latency reduction through optimization. Implemented CI/CD pipeline with GitHub Actions for automated deployment.",
+    techStack: ["React.js", "Node.js", "Express.js", "PostgreSQL", "AWS EC2", "JWT", "GitHub Actions"],
     image: "/images/ecommerce.jpg",
     link: "https://github.com/Lokeshwar28/E-commerce-frontend",
     demo: "https://e-commerce-frontend-three-psi.vercel.app/",
+    duration: "Jan 2025 - Apr 2025",
+    metrics: ["1,000+ users", "30% API latency reduction", "CI/CD pipeline"]
   },
   {
-    title: "Real-Time Blog App",
-    description: "Created a real-time blogging platform using React and Socket.io for live post updates without page refresh. Implemented secure user authentication with JWT and enforced OWASP security standards. Backend built with Node.js and Express, deployed on Render. Styled with Tailwind CSS for a clean UI/UX.",
-    techStack: ["React", "Node.js" , "Express", "Socket.io", "PostgreSQL", "JWT" , "Render" , "Tailwind CSS" ],
+    title: "Real-Time Blog App (Full-Stack)",
+    description: "React, Node.js, PostgreSQL, Socket.io - Developed a real-time blogging platform with live content updates, real-time comments, and post notifications. Enhanced responsiveness by 40% through caching strategies. Deployed on Vercel/Render with high availability architecture.",
+    techStack: ["React", "Node.js", "PostgreSQL", "Socket.io", "Vercel", "Render"],
     image: "/images/blog.jpg",
     link: "https://github.com/Lokeshwar28/Realtime_blog_frontend",
     demo: "https://realtime-blog-frontend.vercel.app/",
+    duration: "Aug 2024 - Jan 2025",
+    metrics: ["40% responsiveness improvement", "Real-time updates", "High availability"]
   },
   {
-    title: "Book Notes Manager",
-    description: "Built a CRUD-based book notes manager using Node.js, Express, and PostgreSQL. Users can add, edit, categorize, and view book notes. Integrated Open Library Covers API for dynamic book imagery. Deployed on Railway with an EJS-based frontend, styled using custom CSS and HTML.",
-    techStack: ["Node.js", "Express", "PostgreSQL", "EJS" , "Railway" , "HTML" , "CSS" , "Open Library API"],
+    title: "Book Notes Manager (Full-Stack)",
+    description: "Node.js, Express.js, EJS, PostgreSQL - Created a comprehensive book management system with Open Library API integration using Axios. Features responsive Bootstrap design with full CRUD operations for managing book notes and reviews.",
+    techStack: ["Node.js", "Express.js", "EJS", "PostgreSQL", "Bootstrap", "Open Library API", "Axios"],
     image: "/images/book-notes.jpg",
     link: "https://github.com/Lokeshwar28/book-notes",
     demo: "https://book-notes-production.up.railway.app/",
+    duration: "May 2024 - Aug 2024",
+    metrics: ["Full CRUD operations", "API integration", "Responsive design"]
   },
 ];
 
