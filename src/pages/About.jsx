@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import { FaDownload, FaUserGraduate, FaCode, FaHeart } from 'react-icons/fa';
 import Timeline from '../components/Timeline';
 import SEO from '../components/SEO';
 
@@ -91,10 +92,27 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          {/* Enhanced About Me Heading */}
           <div className="relative inline-block mb-8">
-            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              About Me
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <motion.div
+                className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white shadow-lg"
+                whileHover={{ scale: 1.1, rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <FaUserGraduate className="text-2xl" />
+              </motion.div>
+              <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                About Me
+              </h2>
+              <motion.div
+                className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl text-white shadow-lg"
+                whileHover={{ scale: 1.1, rotate: -360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <FaCode className="text-2xl" />
+              </motion.div>
+            </div>
             <motion.div
               className="absolute -inset-4 bg-glass backdrop-blur-xs rounded-2xl border border-white/10 shadow-glass-inset -z-10"
               animate={{ scale: [1, 1.02, 1] }}
@@ -111,9 +129,9 @@ const About = () => {
           >
             <div className="relative">
               <img
-                src="/images/profile.png"
-                alt="Lokeshwar Reddy"
-                className="w-40 h-40 rounded-full border-4 border-white shadow-2xl"
+                src="/images/profile.webp"
+                alt="Lokeshwar Reddy - Professional Software Engineer"
+                className="w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 rounded-full blur-xl opacity-30 -z-10 animate-pulse" />
               
@@ -131,13 +149,25 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Resume Download Button */}
+          {/* Enhanced Download Resume Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mb-8"
           >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <motion.div
+                className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg text-white shadow-lg"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FaDownload className="text-lg" />
+              </motion.div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                Download Resume
+              </h3>
+            </div>
             <motion.a
               href="/resume.pdf"
               download
@@ -145,27 +175,36 @@ const About = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>📄</span>
-              Download Resume
+              <FaDownload className="group-hover:animate-bounce" />
+              Get My Resume
               <motion.span
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                ⬇️
+                📄
               </motion.span>
             </motion.a>
           </motion.div>
 
-          {/* About Description */}
+          {/* Enhanced Who Am I Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
             className="max-w-5xl mx-auto mb-12"
           >
-            <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
-              👨‍💻 Who Am I?
-            </h3>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <motion.div
+                className="p-3 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl text-white shadow-lg"
+                whileHover={{ scale: 1.1, rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <FaHeart className="text-xl" />
+              </motion.div>
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent">
+                Who Am I?
+              </h3>
+            </div>
             
             <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 shadow-glass border border-white/20 mb-8">
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-6">

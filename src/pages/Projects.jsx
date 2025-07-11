@@ -13,7 +13,7 @@ const projectList = [
     image: "/images/ecommerce.jpg",
     link: "https://github.com/Lokeshwar28/E-commerce-frontend",
     demo: "https://e-commerce-frontend-three-psi.vercel.app/",
-    category: "Full-Stack Web App",
+    category: "Full Stack",
     features: [
       "JWT authentication system for secure user access",
       "Product catalog with advanced search and filtering",
@@ -40,7 +40,7 @@ const projectList = [
     image: "/images/blog.jpg",
     link: "https://github.com/Lokeshwar28/Realtime_blog_frontend",
     demo: "https://realtime-blog-frontend.vercel.app/",
-    category: "Real-Time Web App",
+    category: "Full Stack",
     features: [
       "Real-time post updates with Socket.io integration",
       "Rich text editor for enhanced blog creation",
@@ -67,7 +67,7 @@ const projectList = [
     image: "/images/book-notes.jpg",
     link: "https://github.com/Lokeshwar28/book-notes",
     demo: "https://book-notes-production.up.railway.app/",
-    category: "CRUD Application",
+    category: "Backend",
     features: [
       "Complete CRUD operations for book notes management",
       "Dynamic book cover fetching via Open Library API",
@@ -90,6 +90,9 @@ const projectList = [
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const categories = ['All', 'Full Stack', 'Frontend', 'Backend', 'Mobile', 'Data Science'];
 
   const handleViewDetails = (project) => {
     setSelectedProject(project);
@@ -101,8 +104,13 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
-  // Group projects by category
-  const groupedProjects = projectList.reduce((acc, project) => {
+  // Filter projects based on active filter
+  const filteredProjects = activeFilter === 'All' 
+    ? projectList 
+    : projectList.filter(project => project.category === activeFilter);
+
+  // Group filtered projects by category for display
+  const groupedProjects = filteredProjects.reduce((acc, project) => {
     if (!acc[project.category]) {
       acc[project.category] = [];
     }
@@ -134,6 +142,37 @@ const Projects = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
             🚀 A showcase of my full-stack development projects and technical expertise
           </p>
+        </motion.div>
+
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => (
+              <motion.button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  activeFilter === category
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-neon'
+                    : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 shadow-glass border border-white/20'
+                }`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {category}
+                {category === 'All' && (
+                  <span className="ml-2 text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-full">
+                    {projectList.length}
+                  </span>
+                )}
+              </motion.button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Projects by Category */}

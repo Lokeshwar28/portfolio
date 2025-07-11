@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
-import { FaCertificate, FaAws, FaMicrosoft, FaReact, FaCalendarAlt, FaExternalLinkAlt } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaCertificate, FaAws, FaMicrosoft, FaReact, FaCalendarAlt, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
 import SEO from '../components/SEO';
 
 const Certifications = () => {
@@ -14,6 +15,19 @@ const Certifications = () => {
     triggerOnce: true,
   });
 
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleViewCertificate = (cert) => {
+    setSelectedCertificate(cert);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCertificate(null);
+  };
+
   const certifications = [
     {
       title: "AWS Cloud Support Associate",
@@ -23,7 +37,8 @@ const Certifications = () => {
       description: "Comprehensive certification covering AWS core services, troubleshooting, and cloud support best practices.",
       skills: ["AWS Core Services", "Cloud Troubleshooting", "Technical Support", "Cloud Architecture"],
       credentialId: "AWS-CSA-2025",
-      verifyUrl: "#"
+      verifyUrl: "#",
+      certificateImage: "/certificates/aws-cloud-support.jpg"
     },
     {
       title: "Microsoft UX Design Certification",
@@ -33,7 +48,8 @@ const Certifications = () => {
       description: "Advanced UX design principles, user research methodologies, and design thinking for digital products.",
       skills: ["UX Design", "User Research", "Design Thinking", "Prototyping", "Usability Testing"],
       credentialId: "MS-UXD-2025",
-      verifyUrl: "#"
+      verifyUrl: "#",
+      certificateImage: "/certificates/microsoft-ux-design.jpg"
     },
     {
       title: "React Complete Guide",
@@ -43,7 +59,8 @@ const Certifications = () => {
       description: "Comprehensive React.js course covering hooks, context, Redux, testing, and modern React patterns.",
       skills: ["React.js", "React Hooks", "Context API", "Redux", "Component Testing", "Modern React"],
       credentialId: "UDEMY-REACT-2024",
-      verifyUrl: "#"
+      verifyUrl: "#",
+      certificateImage: "/certificates/react-complete-guide.jpg"
     }
   ];
 
@@ -141,23 +158,17 @@ const Certifications = () => {
                     </div>
                   </div>
 
-                  {/* Credential Info */}
+                  {/* Action Button */}
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Credential ID: <span className="font-mono font-medium">{cert.credentialId}</span>
-                        </p>
-                      </div>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                      >
-                        <FaExternalLinkAlt className="text-sm" />
-                        <span className="text-sm font-medium">Verify</span>
-                      </motion.button>
-                    </div>
+                    <motion.button
+                      onClick={() => handleViewCertificate(cert)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-neon transition-all duration-300"
+                    >
+                      <FaCertificate className="text-lg" />
+                      View Certificate
+                    </motion.button>
                   </div>
                 </div>
 
@@ -171,43 +182,106 @@ const Certifications = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={certificationsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-20 text-center"
-        >
-          <div className="max-w-4xl mx-auto bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 shadow-glass border border-white/20">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <FaCertificate className="text-3xl text-yellow-500" />
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
-                Continuous Learning
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-              I believe in continuous learning and staying updated with the latest technologies and industry best practices. 
-              These certifications represent my commitment to professional growth and technical excellence.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3">
-              {["Kubernetes", "Docker", "GraphQL", "Next.js", "TypeScript"].map((tech, index) => (
-                <motion.span
-                  key={tech}
-                  className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-sm font-medium shadow-lg hover:shadow-neon transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1 }}
-                >
-                  {tech} 🎯
-                </motion.span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
+
+      {/* Certificate Modal */}
+      {isModalOpen && selectedCertificate && (
+        <motion.div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeModal}
+        >
+          <motion.div
+            className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto shadow-2xl"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white">
+                  {selectedCertificate.icon}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                    {selectedCertificate.title}
+                  </h3>
+                  <p className="text-blue-600 dark:text-blue-400 font-semibold">
+                    {selectedCertificate.issuer}
+                  </p>
+                </div>
+              </div>
+              <motion.button
+                onClick={closeModal}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaTimes className="text-gray-500 dark:text-gray-400" />
+              </motion.button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6">
+              {/* Certificate Image Placeholder */}
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-800 rounded-xl p-8 mb-6 text-center">
+                <div className="text-6xl mb-4">{selectedCertificate.icon}</div>
+                <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                  Certificate Preview
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {selectedCertificate.title} - {selectedCertificate.issuer}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                  Awarded: {selectedCertificate.date}
+                </p>
+              </div>
+
+              {/* Certificate Details */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="font-bold text-gray-800 dark:text-white mb-3">Description</h5>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {selectedCertificate.description}
+                  </p>
+                </div>
+                <div>
+                  <h5 className="font-bold text-gray-800 dark:text-white mb-3">Key Skills</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedCertificate.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full font-medium border border-indigo-200 dark:border-indigo-700"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Verify Button */}
+              <div className="mt-6 text-center">
+                <motion.a
+                  href={selectedCertificate.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-neon transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaExternalLinkAlt />
+                  Verify Certificate
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </>
   );
 };

@@ -34,47 +34,47 @@ import SEO from '../components/SEO';
 
 const skillsData = [
   // Languages
-  { name: "JavaScript (ES6+)", level: "expert", icon: <FaJs className="text-yellow-300" />, category: "Languages" },
-  { name: "Python", level: "advanced", icon: <FaPython className="text-blue-500" />, category: "Languages" },
-  { name: "Java", level: "advanced", icon: <FaJava className="text-red-500" />, category: "Languages" },
-  { name: "TypeScript", level: "advanced", icon: <SiTypescript className="text-blue-500" />, category: "Languages" },
-  { name: "HTML5", level: "expert", icon: <FaHtml5 className="text-orange-500" />, category: "Languages" },
-  { name: "CSS3", level: "expert", icon: <FaCss3Alt className="text-blue-400" />, category: "Languages" },
+  { name: "JavaScript (ES6+)", level: "expert", percentage: 95, icon: <FaJs className="text-yellow-300" />, category: "Languages" },
+  { name: "Python", level: "advanced", percentage: 85, icon: <FaPython className="text-blue-500" />, category: "Languages" },
+  { name: "Java", level: "advanced", percentage: 80, icon: <FaJava className="text-red-500" />, category: "Languages" },
+  { name: "TypeScript", level: "advanced", percentage: 85, icon: <SiTypescript className="text-blue-500" />, category: "Languages" },
+  { name: "HTML5", level: "expert", percentage: 95, icon: <FaHtml5 className="text-orange-500" />, category: "Languages" },
+  { name: "CSS3", level: "expert", percentage: 90, icon: <FaCss3Alt className="text-blue-400" />, category: "Languages" },
 
   // Frontend
-  { name: "React.js", level: "expert", icon: <FaReact className="text-cyan-400" />, category: "Frontend" },
-  { name: "Redux", level: "advanced", icon: <SiRedux className="text-purple-400" />, category: "Frontend" },
-  { name: "Tailwind CSS", level: "expert", icon: <SiTailwindcss className="text-teal-300" />, category: "Frontend" },
-  { name: "Bootstrap", level: "advanced", icon: <SiBootstrap className="text-purple-500" />, category: "Frontend" },
-  { name: "Responsive Design", level: "expert", icon: <FaCss3Alt className="text-blue-400" />, category: "Frontend" },
+  { name: "React.js", level: "expert", percentage: 95, icon: <FaReact className="text-cyan-400" />, category: "Frontend" },
+  { name: "Redux", level: "advanced", percentage: 80, icon: <SiRedux className="text-purple-400" />, category: "Frontend" },
+  { name: "Tailwind CSS", level: "expert", percentage: 90, icon: <SiTailwindcss className="text-teal-300" />, category: "Frontend" },
+  { name: "Bootstrap", level: "advanced", percentage: 85, icon: <SiBootstrap className="text-purple-500" />, category: "Frontend" },
+  { name: "Responsive Design", level: "expert", percentage: 92, icon: <FaCss3Alt className="text-blue-400" />, category: "Frontend" },
 
   // Backend
-  { name: "Node.js", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
-  { name: "Express.js", level: "expert", icon: <SiExpress className="text-gray-300" />, category: "Backend" },
-  { name: "RESTful APIs", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
-  { name: "PostgreSQL", level: "advanced", icon: <SiPostgresql className="text-blue-500" />, category: "Backend" },
-  { name: "JWT", level: "advanced", icon: <SiJsonwebtokens className="text-red-500" />, category: "Backend" },
-  { name: "OAuth", level: "intermediate", icon: <FaReact className="text-cyan-400" />, category: "Backend" },
-  { name: "EJS", level: "advanced", icon: <SiEjs className="text-green-600" />, category: "Backend" },
+  { name: "Node.js", level: "expert", percentage: 90, icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
+  { name: "Express.js", level: "expert", percentage: 88, icon: <SiExpress className="text-gray-300" />, category: "Backend" },
+  { name: "RESTful APIs", level: "expert", percentage: 92, icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
+  { name: "PostgreSQL", level: "advanced", percentage: 85, icon: <SiPostgresql className="text-blue-500" />, category: "Backend" },
+  { name: "JWT", level: "advanced", percentage: 80, icon: <SiJsonwebtokens className="text-red-500" />, category: "Backend" },
+  { name: "OAuth", level: "intermediate", percentage: 65, icon: <FaReact className="text-cyan-400" />, category: "Backend" },
+  { name: "EJS", level: "advanced", percentage: 75, icon: <SiEjs className="text-green-600" />, category: "Backend" },
 
   // Cloud & DevOps
-  { name: "AWS (EC2, S3, Lambda, CloudFront)", level: "advanced", icon: <FaAws className="text-orange-300" />, category: "Cloud & DevOps" },
-  { name: "Docker", level: "intermediate", icon: <FaDocker className="text-blue-300" />, category: "Cloud & DevOps" },
-  { name: "GitHub Actions", level: "intermediate", icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
-  { name: "CI/CD", level: "intermediate", icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
+  { name: "AWS (EC2, S3, Lambda, CloudFront)", level: "advanced", percentage: 80, icon: <FaAws className="text-orange-300" />, category: "Cloud & DevOps" },
+  { name: "Docker", level: "intermediate", percentage: 70, icon: <FaDocker className="text-blue-300" />, category: "Cloud & DevOps" },
+  { name: "GitHub Actions", level: "intermediate", percentage: 65, icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
+  { name: "CI/CD", level: "intermediate", percentage: 70, icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
 
   // Tools
-  { name: "Postman", level: "advanced", icon: <SiPostman className="text-orange-500" />, category: "Tools" },
-  { name: "VS Code", level: "expert", icon: <FaCode className="text-blue-500" />, category: "Tools" },
-  { name: "Axios", level: "advanced", icon: <SiAxios className="text-purple-500" />, category: "Tools" },
-  { name: "Render", level: "advanced", icon: <SiRender className="text-green-500" />, category: "Tools" },
-  { name: "Vercel", level: "advanced", icon: <SiVercel className="text-gray-800 dark:text-white" />, category: "Tools" },
+  { name: "Postman", level: "advanced", percentage: 85, icon: <SiPostman className="text-orange-500" />, category: "Tools" },
+  { name: "VS Code", level: "expert", percentage: 95, icon: <FaCode className="text-blue-500" />, category: "Tools" },
+  { name: "Axios", level: "advanced", percentage: 88, icon: <SiAxios className="text-purple-500" />, category: "Tools" },
+  { name: "Render", level: "advanced", percentage: 80, icon: <SiRender className="text-green-500" />, category: "Tools" },
+  { name: "Vercel", level: "advanced", percentage: 85, icon: <SiVercel className="text-gray-800 dark:text-white" />, category: "Tools" },
 
   // Practices
-  { name: "Agile/Scrum", level: "advanced", icon: <FaGitAlt className="text-red-400" />, category: "Practices" },
-  { name: "MVC Architecture", level: "advanced", icon: <FaNodeJs className="text-green-400" />, category: "Practices" },
-  { name: "CRUD Operations", level: "expert", icon: <SiPostgresql className="text-blue-500" />, category: "Practices" },
-  { name: "API Integration", level: "expert", icon: <SiAxios className="text-purple-500" />, category: "Practices" },
+  { name: "Agile/Scrum", level: "advanced", percentage: 85, icon: <FaGitAlt className="text-red-400" />, category: "Practices" },
+  { name: "MVC Architecture", level: "advanced", percentage: 88, icon: <FaNodeJs className="text-green-400" />, category: "Practices" },
+  { name: "CRUD Operations", level: "expert", percentage: 95, icon: <SiPostgresql className="text-blue-500" />, category: "Practices" },
+  { name: "API Integration", level: "expert", percentage: 92, icon: <SiAxios className="text-purple-500" />, category: "Practices" },
 ];
 
 const groupedSkills = skillsData.reduce((acc, skill) => {
@@ -165,6 +165,7 @@ const Skills = () => {
                         key={skill.name}
                         skill={skill.name}
                         level={skill.level}
+                        percentage={skill.percentage}
                         icon={skill.icon}
                         delay={categoryIndex * 0.2 + skillIndex * 0.1}
                       />

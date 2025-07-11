@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import useTheme from '../hooks/useTheme';
 
 const Header = () => {
   const { isDark, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -25,6 +27,34 @@ const Header = () => {
     { id: 'certifications', name: 'Certifications' },
     { id: 'contact', name: 'Contact' }
   ];
+
+  // Set up intersection observers for each section
+  useEffect(() => {
+    const observers = navItems.map(item => {
+      const element = document.getElementById(item.id);
+      if (!element) return null;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(item.id);
+          }
+        },
+        {
+          root: null,
+          rootMargin: '-20% 0px -70% 0px', // Trigger when section is 20% from top
+          threshold: 0
+        }
+      );
+
+      observer.observe(element);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(observer => observer?.disconnect());
+    };
+  }, []);
 
   return (
     <header className="bg-light dark:bg-secondary text-black dark:text-white p-4 flex flex-wrap justify-between items-center sticky top-0 z-50 transition-colors duration-300">
@@ -52,9 +82,19 @@ const Header = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="mx-2 my-1 hover:text-accent transition-colors text-left"
+              className={`mx-2 my-1 transition-all duration-300 text-left relative group ${
+                activeSection === item.id 
+                  ? 'text-accent font-semibold' 
+                  : 'hover:text-accent'
+              }`}
             >
               {item.name}
+              {/* Active indicator */}
+              <span 
+                className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                  activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}
+              />
             </button>
           ))}
         </div>

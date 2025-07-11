@@ -1,36 +1,24 @@
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 
-const SkillCardNew = ({ skill, level, icon, delay = 0 }) => {
+const SkillCardNew = ({ skill, level, percentage, icon, delay = 0 }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true,
   });
 
-  const getLevelColor = (level) => {
-    switch (level) {
-      case 'expert':
-        return 'from-green-400 to-emerald-400';
-      case 'advanced':
-        return 'from-blue-400 to-indigo-400';
-      case 'intermediate':
-        return 'from-yellow-400 to-orange-400';
-      default:
-        return 'from-gray-400 to-gray-500';
-    }
+  const getPercentageColor = (percentage) => {
+    if (percentage >= 90) return 'from-green-400 to-emerald-400';
+    if (percentage >= 80) return 'from-blue-400 to-indigo-400';
+    if (percentage >= 70) return 'from-yellow-400 to-orange-400';
+    return 'from-gray-400 to-gray-500';
   };
 
-  const getLevelText = (level) => {
-    switch (level) {
-      case 'expert':
-        return 'Expert';
-      case 'advanced':
-        return 'Advanced';
-      case 'intermediate':
-        return 'Intermediate';
-      default:
-        return 'Learning';
-    }
+  const getLevelText = (percentage) => {
+    if (percentage >= 90) return 'Expert';
+    if (percentage >= 80) return 'Advanced';
+    if (percentage >= 70) return 'Intermediate';
+    return 'Learning';
   };
 
   return (
@@ -62,20 +50,44 @@ const SkillCardNew = ({ skill, level, icon, delay = 0 }) => {
           {skill}
         </h4>
 
-        {/* Level Badge */}
+        {/* Level Progress Bar */}
         <div className="mt-auto">
-          <div className={`w-full h-2 bg-gradient-to-r ${getLevelColor(level)} rounded-full mb-2`}>
+          {/* Background Bar */}
+          <div className="w-full h-3 bg-gray-200 dark:bg-gray-600 rounded-full mb-2 overflow-hidden">
             <motion.div
-              className="h-full bg-white/30 rounded-full"
+              className={`h-full bg-gradient-to-r ${getPercentageColor(percentage)} rounded-full relative`}
               initial={{ width: 0 }}
-              animate={inView ? { width: '100%' } : {}}
-              transition={{ duration: 1, delay: delay + 0.3 }}
-            />
+              animate={inView ? { width: `${percentage}%` } : { width: 0 }}
+              transition={{ duration: 1.2, delay: delay + 0.3, ease: "easeOut" }}
+            >
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                animate={inView ? { x: ['-100%', '100%'] } : {}}
+                transition={{ duration: 1.5, delay: delay + 1.5 }}
+              />
+            </motion.div>
           </div>
           
-          <p className="text-xs text-center font-medium text-gray-600 dark:text-gray-400">
-            {getLevelText(level)}
-          </p>
+          {/* Percentage and Level */}
+          <div className="flex justify-between items-center">
+            <motion.p 
+              className="text-xs font-bold text-gray-700 dark:text-gray-300"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: delay + 1 }}
+            >
+              {percentage}%
+            </motion.p>
+            <motion.p 
+              className="text-xs font-medium text-gray-600 dark:text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: delay + 1.1 }}
+            >
+              {getLevelText(percentage)}
+            </motion.p>
+          </div>
         </div>
 
         {/* Floating decoration */}
