@@ -11,56 +11,63 @@ const About = () => {
 
   const timelineData = [
     {
-      year: "2025",
-      title: "Software Developer Intern (Goal)",
-      location: "Target: Top Tech Company",
-      description: "Aiming to apply my full-stack skills in a dynamic tech environment and deliver scalable solutions.",
-      icon: "🚀",
-      status: "goal",
-      skills: ["System Design", "Microservices", "Cloud Architecture"],
-    },
-    {
-      year: "2024",
-      title: "AWS Certified + Major Projects",
-      location: "Self-Directed Learning",
-      description: "Completed AWS Cloud Support Certification and built real-time apps like an E-Commerce Platform and Blog App.",
-      icon: "🏆",
-      status: "completed",
-      skills: ["AWS", "Real-time Apps", "E-Commerce", "Blog Development"],
+      year: "Sept 2023 - May 2025",
+      title: "Full Stack Developer (Graduate Assistant)",
+      location: "IT Help Central, Texas Tech University",
+      description: "Designed internal web tools using OOP principles and developed reusable UI components across multiple applications.",
+      icon: "💼",
+      status: "current",
+      skills: ["JavaScript", "HTML", "CSS", "PHP", "SQL Server", "Git", "Agile/Scrum"],
       achievements: [
-        "AWS Cloud Support Associate Certification",
-        "Built full-stack e-commerce platform with payment integration",
-        "Developed real-time blog application with admin panel",
-        "Implemented CI/CD pipelines for automated deployment"
+        "Designed internal web tools using OOP principles for 20+ staff",
+        "Developed reusable UI components across 5+ applications, reducing development time by 15-20%",
+        "Automated data processes saving 10 hours weekly with improved accuracy",
+        "Optimized SQL queries achieving 25% improvement in data retrieval times",
+        "Collaborated in Agile/Scrum environment with Git version control"
       ]
     },
     {
-      year: "2023",
-      title: "Master's in Computer Science",
+      year: "2024 - 2025",
+      title: "AWS Certified + Major Projects",
+      location: "Self-Directed Learning & Certifications",
+      description: "Completed multiple certifications and built production-ready full-stack applications.",
+      icon: "🏆",
+      status: "completed",
+      skills: ["AWS", "React.js", "Node.js", "UX Design", "E-Commerce", "Real-time Apps"],
+      achievements: [
+        "AWS Cloud Support Associate Certification (Jan 2025)",
+        "Microsoft UX Design Certification (Jan 2025)",
+        "React Complete Guide Certification (Feb 2024)",
+        "Built E-Commerce Platform with 30% API latency reduction",
+        "Developed Real-Time Blog App with 40% responsiveness enhancement"
+      ]
+    },
+    {
+      year: "Aug 2023 - May 2025",
+      title: "M.S. Computer Science",
       location: "Texas Tech University",
-      description: "Focusing on Cloud, Distributed Systems, and Software Engineering with practical hands-on projects.",
+      description: "Pursuing advanced studies in distributed systems, cloud computing, and software engineering.",
       icon: "🎓",
       status: "current",
       skills: ["Distributed Systems", "Cloud Computing", "Software Engineering", "Algorithms"],
       achievements: [
         "Maintaining excellent academic performance",
-        "Contributing to research projects in distributed systems",
-        "Leading study groups and mentoring undergraduates"
+        "Working as Graduate Assistant in IT Help Central",
+        "Focusing on scalable system design and cloud solutions"
       ]
     },
     {
-      year: "2019 - 2023",
-      title: "B.Tech in Electronics & Communication",
-      location: "Malla Reddy College of Engineering",
-      description: "Led the Data Leakage Detection System project. Developed a passion for full-stack development and UX design.",
+      year: "Jul 2019 - May 2023",
+      title: "B.Tech Electronics & Communication",
+      location: "Malla Reddy College of Engineering & Technology",
+      description: "Built foundational knowledge in engineering principles and discovered passion for software development.",
       icon: "📘",
       status: "completed",
-      skills: ["Project Leadership", "Research", "Full-Stack Development", "UX Design"],
+      skills: ["Engineering Fundamentals", "Research", "Problem Solving", "Project Management"],
       achievements: [
-        "Led Data Leakage Detection System project",
         "Graduated with distinction",
-        "Won inter-college coding competition",
-        "Published research paper on data security"
+        "Led technical projects and research initiatives",
+        "Developed strong analytical and problem-solving skills"
       ]
     },
   ];
@@ -162,10 +169,10 @@ const About = () => {
             
             <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 shadow-glass border border-white/20 mb-8">
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                I&apos;m a results-driven Full-Stack Developer specializing in building scalable, high-performance web applications using React, Node.js, PostgreSQL, and AWS.
+                Software Engineer with full-stack expertise in designing and building scalable, innovative systems. Proven track record in optimizing API performance by 30% and enhancing database efficiency by 25% while delivering robust cloud solutions.
               </p>
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-                With a strong foundation in both front-end and back-end development, I design and implement clean, maintainable code that enhances user experience and system reliability. My projects reflect a commitment to continuous learning and delivering real-world impact.
+                Currently pursuing M.S. in Computer Science at Texas Tech University (Aug 2023 - May 2025) while working as a Full Stack Developer Graduate Assistant. Previously completed B.Tech in Electronics & Communication at Malla Reddy College of Engineering & Technology (Jul 2019 - May 2023).
               </p>
             </div>
           </motion.div>

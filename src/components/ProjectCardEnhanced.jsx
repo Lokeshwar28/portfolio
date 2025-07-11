@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaEye } from "react-icons/fa";
-import { useState } from "react";
 
 const ProjectCard = ({ project, onViewDetails }) => {
-  const { title, description, techStack, image, link, demo, category, fullDescription, features, highlights } = project;
+  const { title, description, techStack, image, link, demo, category } = project;
   
   return (
     <motion.div

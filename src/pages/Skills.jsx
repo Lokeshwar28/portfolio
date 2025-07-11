@@ -8,17 +8,24 @@ import {
   FaCss3Alt,
   FaJs,
   FaGithub,
-  FaCloud,
-  FaRocket,
+  FaPython,
+  FaJava,
+  FaCode,
+  FaTools,
 } from "react-icons/fa";
 import {
   SiPostgresql,
   SiRedux,
   SiTailwindcss,
   SiExpress,
-  SiMongodb,
   SiTypescript,
-  SiVite,
+  SiBootstrap,
+  SiJsonwebtokens,
+  SiVercel,
+  SiRender,
+  SiPostman,
+  SiAxios,
+  SiEjs,
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
@@ -27,30 +34,47 @@ import SEO from '../components/SEO';
 
 const skillsData = [
   // Languages
-  { name: "JavaScript", level: "expert", icon: <FaJs className="text-yellow-300" />, category: "Languages" },
+  { name: "JavaScript (ES6+)", level: "expert", icon: <FaJs className="text-yellow-300" />, category: "Languages" },
+  { name: "Python", level: "advanced", icon: <FaPython className="text-blue-500" />, category: "Languages" },
+  { name: "Java", level: "advanced", icon: <FaJava className="text-red-500" />, category: "Languages" },
   { name: "TypeScript", level: "advanced", icon: <SiTypescript className="text-blue-500" />, category: "Languages" },
   { name: "HTML5", level: "expert", icon: <FaHtml5 className="text-orange-500" />, category: "Languages" },
   { name: "CSS3", level: "expert", icon: <FaCss3Alt className="text-blue-400" />, category: "Languages" },
 
-  // Frameworks & Libraries
-  { name: "React.js", level: "expert", icon: <FaReact className="text-cyan-400" />, category: "Frameworks & Libraries" },
-  { name: "Node.js", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Frameworks & Libraries" },
-  { name: "Express.js", level: "expert", icon: <SiExpress className="text-gray-300" />, category: "Frameworks & Libraries" },
-  { name: "Redux", level: "advanced", icon: <SiRedux className="text-purple-400" />, category: "Frameworks & Libraries" },
-  { name: "Tailwind CSS", level: "expert", icon: <SiTailwindcss className="text-teal-300" />, category: "Frameworks & Libraries" },
+  // Frontend
+  { name: "React.js", level: "expert", icon: <FaReact className="text-cyan-400" />, category: "Frontend" },
+  { name: "Redux", level: "advanced", icon: <SiRedux className="text-purple-400" />, category: "Frontend" },
+  { name: "Tailwind CSS", level: "expert", icon: <SiTailwindcss className="text-teal-300" />, category: "Frontend" },
+  { name: "Bootstrap", level: "advanced", icon: <SiBootstrap className="text-purple-500" />, category: "Frontend" },
+  { name: "Responsive Design", level: "expert", icon: <FaCss3Alt className="text-blue-400" />, category: "Frontend" },
 
-  // Databases
-  { name: "PostgreSQL", level: "advanced", icon: <SiPostgresql className="text-blue-500" />, category: "Databases" },
-  { name: "MongoDB", level: "intermediate", icon: <SiMongodb className="text-green-500" />, category: "Databases" },
+  // Backend
+  { name: "Node.js", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
+  { name: "Express.js", level: "expert", icon: <SiExpress className="text-gray-300" />, category: "Backend" },
+  { name: "RESTful APIs", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
+  { name: "PostgreSQL", level: "advanced", icon: <SiPostgresql className="text-blue-500" />, category: "Backend" },
+  { name: "JWT", level: "advanced", icon: <SiJsonwebtokens className="text-red-500" />, category: "Backend" },
+  { name: "OAuth", level: "intermediate", icon: <FaReact className="text-cyan-400" />, category: "Backend" },
+  { name: "EJS", level: "advanced", icon: <SiEjs className="text-green-600" />, category: "Backend" },
 
-  // DevOps & Tools
-  { name: "AWS", level: "advanced", icon: <FaAws className="text-orange-300" />, category: "DevOps & Tools" },
-  { name: "Docker", level: "intermediate", icon: <FaDocker className="text-blue-300" />, category: "DevOps & Tools" },
-  { name: "Git", level: "expert", icon: <FaGitAlt className="text-red-400" />, category: "DevOps & Tools" },
-  { name: "GitHub Actions", level: "intermediate", icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "DevOps & Tools" },
-  { name: "Vercel", level: "advanced", icon: <FaRocket className="text-gray-800 dark:text-white" />, category: "DevOps & Tools" },
-  { name: "Vite", level: "advanced", icon: <SiVite className="text-purple-500" />, category: "DevOps & Tools" },
-  { name: "Railway", level: "intermediate", icon: <FaCloud className="text-pink-400" />, category: "DevOps & Tools" },
+  // Cloud & DevOps
+  { name: "AWS (EC2, S3, Lambda, CloudFront)", level: "advanced", icon: <FaAws className="text-orange-300" />, category: "Cloud & DevOps" },
+  { name: "Docker", level: "intermediate", icon: <FaDocker className="text-blue-300" />, category: "Cloud & DevOps" },
+  { name: "GitHub Actions", level: "intermediate", icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
+  { name: "CI/CD", level: "intermediate", icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
+
+  // Tools
+  { name: "Postman", level: "advanced", icon: <SiPostman className="text-orange-500" />, category: "Tools" },
+  { name: "VS Code", level: "expert", icon: <FaCode className="text-blue-500" />, category: "Tools" },
+  { name: "Axios", level: "advanced", icon: <SiAxios className="text-purple-500" />, category: "Tools" },
+  { name: "Render", level: "advanced", icon: <SiRender className="text-green-500" />, category: "Tools" },
+  { name: "Vercel", level: "advanced", icon: <SiVercel className="text-gray-800 dark:text-white" />, category: "Tools" },
+
+  // Practices
+  { name: "Agile/Scrum", level: "advanced", icon: <FaGitAlt className="text-red-400" />, category: "Practices" },
+  { name: "MVC Architecture", level: "advanced", icon: <FaNodeJs className="text-green-400" />, category: "Practices" },
+  { name: "CRUD Operations", level: "expert", icon: <SiPostgresql className="text-blue-500" />, category: "Practices" },
+  { name: "API Integration", level: "expert", icon: <SiAxios className="text-purple-500" />, category: "Practices" },
 ];
 
 const groupedSkills = skillsData.reduce((acc, skill) => {

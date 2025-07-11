@@ -60,9 +60,15 @@ const Contact = () => {
       link: "mailto:lokeshwar2808@gmail.com"
     },
     {
+      icon: <FaPhone className="text-green-500" />,
+      label: "Phone",
+      value: "+1 (806) 702-1554",
+      link: "tel:+18067021554"
+    },
+    {
       icon: <FaMapMarkerAlt className="text-red-500" />,
       label: "Location",
-      value: "Lubbock, Texas, USA",
+      value: "Lubbock, TX, USA",
       link: null
     },
     {

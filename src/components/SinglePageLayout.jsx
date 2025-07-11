@@ -7,6 +7,8 @@ import SEO from './SEO';
 import About from '../pages/About';
 import Projects from '../pages/Projects';
 import Skills from '../pages/Skills';
+import Experience from '../pages/Experience';
+import Certifications from '../pages/Certifications';
 import Contact from '../pages/Contact';
 
 const SinglePageLayout = () => {
@@ -245,17 +247,12 @@ const SinglePageLayout = () => {
 
       {/* Experience Section */}
       <section id="experience" className="min-h-screen">
-        {/* We'll create a new Experience component */}
-        <div className="w-full min-h-screen bg-light dark:bg-primary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 flex flex-col items-center transition-colors duration-300">
-          <p className="text-center text-accent text-xl font-semibold mb-2">💼 My Professional Experience</p>
-          <h2 className="text-4xl font-bold text-center mb-10">Experience</h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-center text-gray-600 dark:text-gray-400 text-lg">
-              Currently seeking opportunities to apply my full-stack development skills in a professional environment.
-              My academic and project experience demonstrates proficiency in modern web development technologies.
-            </p>
-          </div>
-        </div>
+        <Experience />
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="min-h-screen">
+        <Certifications />
       </section>
 
       {/* Contact Section */}

@@ -5,81 +5,84 @@ import ProjectDetailsModal from "../components/ProjectDetailsModal";
 
 const projectList = [
   {
-    title: "E-Commerce Platform",
-    description: "Developed a scalable full-stack e-commerce application featuring secure JWT-based authentication, efficient REST APIs with Express, and deployment on AWS EC2. Integrated product management, shopping cart, and real-time order tracking.",
-    fullDescription: "A comprehensive e-commerce platform built from the ground up with modern web technologies. Features include user authentication, product catalog management, shopping cart functionality, order processing, and real-time order tracking. The application demonstrates proficiency in full-stack development, database design, cloud deployment, and security best practices.",
-    techStack: ["React", "Node.js", "Express", "AWS(EC2)", "PostgreSQL", "JWT", "Tailwind CSS", "Vercel"],
+    title: "E-Commerce Platform (Full-Stack)",
+    description: "React.js, Node.js/Express.js, PostgreSQL, AWS EC2 - JWT authentication, cart/checkout system, real-time order tracking for 1,000+ users. 30% API latency reduction through optimization. CI/CD with GitHub Actions.",
+    fullDescription: "A comprehensive e-commerce platform built from the ground up with modern web technologies. Features include user authentication, product catalog management, shopping cart functionality, order processing, and real-time order tracking. The application demonstrates proficiency in full-stack development, database design, cloud deployment, and security best practices. Achieved 30% API performance improvement through optimization techniques.",
+    duration: "Jan 2025 - Apr 2025",
+    techStack: ["React.js", "Node.js", "Express.js", "PostgreSQL", "AWS EC2", "JWT", "GitHub Actions", "Tailwind CSS"],
     image: "/images/ecommerce.jpg",
     link: "https://github.com/Lokeshwar28/E-commerce-frontend",
     demo: "https://e-commerce-frontend-three-psi.vercel.app/",
     category: "Full-Stack Web App",
     features: [
-      "Secure user authentication with JWT tokens",
-      "Product catalog with search and filtering",
-      "Shopping cart with persistent state",
-      "Order management and tracking system",
-      "Responsive design for all devices",
+      "JWT authentication system for secure user access",
+      "Product catalog with advanced search and filtering",
+      "Shopping cart with persistent state management",
+      "Real-time order tracking for 1,000+ users",
+      "Responsive design optimized for all devices",
       "Payment integration ready architecture",
-      "Admin panel for product management",
-      "Real-time inventory updates"
+      "Admin panel for comprehensive product management",
+      "Real-time inventory updates and notifications"
     ],
     highlights: [
-      "Built with scalable architecture on AWS EC2",
-      "Implements OWASP security best practices",
-      "Optimized for performance and SEO",
-      "Clean, maintainable code structure"
+      "30% API latency reduction through query optimization",
+      "Scalable architecture deployed on AWS EC2",
+      "CI/CD pipeline implementation with GitHub Actions",
+      "Robust error handling and security implementations"
     ]
   },
   {
-    title: "Real-Time Blog App",
-    description: "Created a real-time blogging platform using React and Socket.io for live post updates without page refresh. Implemented secure user authentication with JWT and enforced OWASP security standards.",
-    fullDescription: "A modern blogging platform that showcases real-time web development capabilities. Users can create, edit, and publish blog posts with live updates across all connected clients. The application includes a complete content management system with role-based access control and a rich text editor for content creation.",
-    techStack: ["React", "Node.js", "Express", "Socket.io", "PostgreSQL", "JWT", "Render", "Tailwind CSS"],
+    title: "Real-Time Blog App (Full-Stack)",
+    description: "React, Node.js, PostgreSQL, Socket.io - Real-time content updates, live comments, post notifications. 40% responsiveness enhancement via caching. Deployed on Vercel/Render with high availability.",
+    fullDescription: "A modern blogging platform that showcases real-time web development capabilities. Users can create, edit, and publish blog posts with live updates across all connected clients. The application includes a complete content management system with role-based access control and a rich text editor for content creation. Achieved 40% performance improvement through strategic caching.",
+    duration: "Aug 2024 - Jan 2025",
+    techStack: ["React", "Node.js", "Express", "Socket.io", "PostgreSQL", "JWT", "Vercel", "Render"],
     image: "/images/blog.jpg",
     link: "https://github.com/Lokeshwar28/Realtime_blog_frontend",
     demo: "https://realtime-blog-frontend.vercel.app/",
     category: "Real-Time Web App",
     features: [
-      "Real-time post updates with Socket.io",
-      "Rich text editor for blog creation",
-      "User authentication and authorization",
-      "Comment system with live updates",
-      "Admin dashboard for content management",
-      "Tag-based post categorization",
-      "Responsive mobile-first design",
-      "SEO optimized blog posts"
+      "Real-time post updates with Socket.io integration",
+      "Rich text editor for enhanced blog creation",
+      "Comprehensive user authentication and authorization",
+      "Live comment system with instant notifications",
+      "Admin dashboard for complete content management",
+      "Tag-based post categorization and filtering",
+      "Mobile-first responsive design approach",
+      "SEO optimized blog posts for better visibility"
     ],
     highlights: [
-      "Zero-latency real-time updates",
-      "Secure OWASP compliant architecture",
-      "Deployed on Render with CI/CD pipeline",
-      "Clean UI/UX with Tailwind CSS"
+      "40% responsiveness enhancement via strategic caching",
+      "Zero-latency real-time updates across all clients",
+      "High availability deployment on Vercel/Render",
+      "Clean, intuitive UI/UX with modern design principles"
     ]
   },
   {
-    title: "Book Notes Manager",
-    description: "Built a CRUD-based book notes manager using Node.js, Express, and PostgreSQL. Users can add, edit, categorize, and view book notes. Integrated Open Library Covers API for dynamic book imagery.",
-    fullDescription: "A personal book management system that helps users organize their reading notes and track their reading progress. The application integrates with external APIs to fetch book information and cover images, providing a rich user experience for book enthusiasts.",
-    techStack: ["Node.js", "Express", "PostgreSQL", "EJS", "Railway", "HTML", "CSS", "Open Library API"],
+    title: "Book Notes Manager (Full-Stack)",
+    description: "Node.js, Express.js, EJS, PostgreSQL - Open Library API integration with Axios. Bootstrap responsive design, full CRUD operations for personal book management and note organization.",
+    fullDescription: "A personal book management system that helps users organize their reading notes and track their reading progress. The application integrates with external APIs to fetch book information and cover images, providing a rich user experience for book enthusiasts. Built with server-side rendering for optimal performance.",
+    duration: "May 2024 - Aug 2024",
+    techStack: ["Node.js", "Express.js", "PostgreSQL", "EJS", "Bootstrap", "Open Library API", "Axios"],
     image: "/images/book-notes.jpg",
     link: "https://github.com/Lokeshwar28/book-notes",
     demo: "https://book-notes-production.up.railway.app/",
     category: "CRUD Application",
     features: [
-      "Complete CRUD operations for book notes",
-      "Dynamic book cover fetching via API",
-      "Book categorization and tagging",
-      "Search and filter functionality",
-      "Reading progress tracking",
-      "Export notes to various formats",
-      "User-friendly interface with EJS templates",
-      "PostgreSQL database for data persistence"
+      "Complete CRUD operations for book notes management",
+      "Dynamic book cover fetching via Open Library API",
+      "Advanced book categorization and tagging system",
+      "Comprehensive search and filter functionality",
+      "Reading progress tracking and analytics",
+      "Export notes to multiple formats",
+      "Responsive interface built with Bootstrap",
+      "Efficient PostgreSQL database design"
     ],
     highlights: [
-      "Seamless API integration with Open Library",
-      "Efficient database design and queries",
-      "Deployed on Railway platform",
-      "Clean server-side rendered templates"
+      "Seamless API integration with Open Library using Axios",
+      "Efficient database design with optimized queries",
+      "Clean server-side rendered templates with EJS",
+      "Responsive design ensuring cross-device compatibility"
     ]
   },
 ];
