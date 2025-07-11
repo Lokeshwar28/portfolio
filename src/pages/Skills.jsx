@@ -22,33 +22,35 @@ import {
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
-import SkillBar from "../components/SkillBar";
+import SkillCardNew from "../components/SkillCardNew";
 import SEO from '../components/SEO';
 
 const skillsData = [
-  // Frontend Skills
-  { name: "React.js", level: "expert", icon: <FaReact className="text-cyan-400" />, category: "Frontend" },
-  { name: "JavaScript", level: "expert", icon: <FaJs className="text-yellow-300" />, category: "Frontend" },
-  { name: "TypeScript", level: "advanced", icon: <SiTypescript className="text-blue-500" />, category: "Frontend" },
-  { name: "HTML5", level: "expert", icon: <FaHtml5 className="text-orange-500" />, category: "Frontend" },
-  { name: "CSS3", level: "expert", icon: <FaCss3Alt className="text-blue-400" />, category: "Frontend" },
-  { name: "Tailwind CSS", level: "expert", icon: <SiTailwindcss className="text-teal-300" />, category: "Frontend" },
-  { name: "Redux", level: "advanced", icon: <SiRedux className="text-purple-400" />, category: "Frontend" },
-  { name: "Vite", level: "advanced", icon: <SiVite className="text-purple-500" />, category: "Frontend" },
+  // Languages
+  { name: "JavaScript", level: "expert", icon: <FaJs className="text-yellow-300" />, category: "Languages" },
+  { name: "TypeScript", level: "advanced", icon: <SiTypescript className="text-blue-500" />, category: "Languages" },
+  { name: "HTML5", level: "expert", icon: <FaHtml5 className="text-orange-500" />, category: "Languages" },
+  { name: "CSS3", level: "expert", icon: <FaCss3Alt className="text-blue-400" />, category: "Languages" },
 
-  // Backend Skills
-  { name: "Node.js", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
-  { name: "Express.js", level: "expert", icon: <SiExpress className="text-gray-300" />, category: "Backend" },
-  { name: "PostgreSQL", level: "advanced", icon: <SiPostgresql className="text-blue-500" />, category: "Backend" },
-  { name: "MongoDB", level: "intermediate", icon: <SiMongodb className="text-green-500" />, category: "Backend" },
+  // Frameworks & Libraries
+  { name: "React.js", level: "expert", icon: <FaReact className="text-cyan-400" />, category: "Frameworks & Libraries" },
+  { name: "Node.js", level: "expert", icon: <FaNodeJs className="text-green-400" />, category: "Frameworks & Libraries" },
+  { name: "Express.js", level: "expert", icon: <SiExpress className="text-gray-300" />, category: "Frameworks & Libraries" },
+  { name: "Redux", level: "advanced", icon: <SiRedux className="text-purple-400" />, category: "Frameworks & Libraries" },
+  { name: "Tailwind CSS", level: "expert", icon: <SiTailwindcss className="text-teal-300" />, category: "Frameworks & Libraries" },
+
+  // Databases
+  { name: "PostgreSQL", level: "advanced", icon: <SiPostgresql className="text-blue-500" />, category: "Databases" },
+  { name: "MongoDB", level: "intermediate", icon: <SiMongodb className="text-green-500" />, category: "Databases" },
 
   // DevOps & Tools
-  { name: "AWS", level: "advanced", icon: <FaAws className="text-orange-300" />, category: "DevOps" },
-  { name: "Docker", level: "intermediate", icon: <FaDocker className="text-blue-300" />, category: "DevOps" },
-  { name: "Git", level: "expert", icon: <FaGitAlt className="text-red-400" />, category: "DevOps" },
-  { name: "GitHub Actions", level: "intermediate", icon: <FaGithub className="text-white" />, category: "DevOps" },
-  { name: "Vercel", level: "advanced", icon: <FaRocket className="text-white" />, category: "DevOps" },
-  { name: "Railway", level: "intermediate", icon: <FaCloud className="text-pink-400" />, category: "DevOps" },
+  { name: "AWS", level: "advanced", icon: <FaAws className="text-orange-300" />, category: "DevOps & Tools" },
+  { name: "Docker", level: "intermediate", icon: <FaDocker className="text-blue-300" />, category: "DevOps & Tools" },
+  { name: "Git", level: "expert", icon: <FaGitAlt className="text-red-400" />, category: "DevOps & Tools" },
+  { name: "GitHub Actions", level: "intermediate", icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "DevOps & Tools" },
+  { name: "Vercel", level: "advanced", icon: <FaRocket className="text-gray-800 dark:text-white" />, category: "DevOps & Tools" },
+  { name: "Vite", level: "advanced", icon: <SiVite className="text-purple-500" />, category: "DevOps & Tools" },
+  { name: "Railway", level: "intermediate", icon: <FaCloud className="text-pink-400" />, category: "DevOps & Tools" },
 ];
 
 const groupedSkills = skillsData.reduce((acc, skill) => {
@@ -111,7 +113,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto"
         >
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {Object.entries(groupedSkills).map(([category, skills], categoryIndex) => (
               <motion.div
                 key={category}
@@ -132,10 +134,10 @@ const Skills = () => {
                     </motion.h3>
                   </div>
 
-                  {/* Skills List */}
-                  <div className="space-y-6">
+                  {/* Skills Grid */}
+                  <div className="grid sm:grid-cols-2 gap-4">
                     {skills.map((skill, skillIndex) => (
-                      <SkillBar
+                      <SkillCardNew
                         key={skill.name}
                         skill={skill.name}
                         level={skill.level}
