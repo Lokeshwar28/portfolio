@@ -46,14 +46,14 @@ const About = () => {
       year: "Aug 2023 - May 2025",
       title: "M.S. Computer Science",
       location: "Texas Tech University",
-      description: "Pursuing advanced studies in distributed systems, cloud computing, and software engineering.",
+      description: "Recently graduated with advanced studies in distributed systems, cloud computing, and software engineering.",
       icon: "🎓",
-      status: "current",
+      status: "completed",
       skills: ["Distributed Systems", "Cloud Computing", "Software Engineering", "Algorithms"],
       achievements: [
-        "Maintaining excellent academic performance",
-        "Working as Graduate Assistant in IT Help Central",
-        "Focusing on scalable system design and cloud solutions"
+        "Graduated with excellent academic performance",
+        "Worked as Graduate Assistant in IT Help Central",
+        "Focused on scalable system design and cloud solutions"
       ]
     },
     {
@@ -172,7 +172,7 @@ const About = () => {
                 Software Engineer with full-stack expertise in designing and building scalable, innovative systems. Proven track record in optimizing API performance by 30% and enhancing database efficiency by 25% while delivering robust cloud solutions.
               </p>
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-                Currently pursuing M.S. in Computer Science at Texas Tech University (Aug 2023 - May 2025) while working as a Full Stack Developer Graduate Assistant. Previously completed B.Tech in Electronics & Communication at Malla Reddy College of Engineering & Technology (Jul 2019 - May 2023).
+                Recently graduated with M.S. in Computer Science from Texas Tech University (May 2025). Actively seeking Software Engineer opportunities in Dallas, TX. Previously completed B.Tech in Electronics & Communication at Malla Reddy College of Engineering & Technology (Jul 2019 - May 2023).
               </p>
             </div>
           </motion.div>

@@ -68,7 +68,7 @@ const Contact = () => {
     {
       icon: <FaMapMarkerAlt className="text-red-500" />,
       label: "Location",
-      value: "Lubbock, TX, USA",
+      value: "Dallas, TX, USA",
       link: null
     },
     {

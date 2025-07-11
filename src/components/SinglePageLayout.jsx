@@ -12,7 +12,7 @@ import Certifications from '../pages/Certifications';
 import Contact from '../pages/Contact';
 
 const SinglePageLayout = () => {
-  const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Passionate Problem Solver"];
+  const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Recent Computer Science Graduate"];
   
   const [heroRef, heroInView] = useInView({
     threshold: 0.1,
@@ -185,10 +185,10 @@ const SinglePageLayout = () => {
               className="max-w-4xl mx-auto mb-8"
             >
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                Crafting fast, secure, and modern web apps with JavaScript, React, Node.js, and PostgreSQL.
+                Recent CS graduate from Texas Tech University, actively seeking Software Engineer opportunities.
               </p>
               <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                I specialize in building performant, scalable full-stack applications with modern technologies.
+                Specializing in building performant, scalable full-stack applications with React, Node.js, and AWS.
               </p>
             </motion.div>
 
