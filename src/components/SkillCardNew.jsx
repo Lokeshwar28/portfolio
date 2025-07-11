@@ -70,15 +70,7 @@ const SkillCardNew = ({ skill, level, percentage, icon, delay = 0 }) => {
           </div>
           
           {/* Percentage and Level */}
-          <div className="flex justify-between items-center">
-            <motion.p 
-              className="text-xs font-bold text-gray-700 dark:text-gray-300"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: delay + 1 }}
-            >
-              {percentage}%
-            </motion.p>
+          <div className="flex justify-center items-center">
             <motion.p 
               className="text-xs font-medium text-gray-600 dark:text-gray-400"
               initial={{ opacity: 0 }}

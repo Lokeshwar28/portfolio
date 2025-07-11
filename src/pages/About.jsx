@@ -127,13 +127,27 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative inline-block mb-8"
           >
-            <div className="relative">
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="relative block cursor-pointer group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <img
                 src="/images/profile.webp"
-                alt="Lokeshwar Reddy - Professional Software Engineer"
-                className="w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover"
+                alt="Lokeshwar Reddy - Professional Software Engineer (Click to download resume)"
+                className="w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover group-hover:shadow-neon transition-all duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 rounded-full blur-xl opacity-30 -z-10 animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 rounded-full blur-xl opacity-30 -z-10 animate-pulse group-hover:opacity-50 transition-opacity duration-300" />
+              
+              {/* Download indicator on hover */}
+              <motion.div
+                className="absolute inset-0 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                whileHover={{ backgroundColor: "rgba(0,0,0,0.3)" }}
+              >
+                <FaDownload className="text-white text-2xl" />
+              </motion.div>
               
               {/* Floating decorative elements */}
               <motion.div
@@ -146,10 +160,10 @@ const About = () => {
                 animate={{ rotate: -360, scale: [1, 1.3, 1] }}
                 transition={{ duration: 5, repeat: Infinity }}
               />
-            </div>
+            </motion.a>
           </motion.div>
 
-          {/* Enhanced Download Resume Button */}
+          {/* Enhanced Download Resume Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -168,22 +182,9 @@ const About = () => {
                 Download Resume
               </h3>
             </div>
-            <motion.a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl shadow-xl hover:shadow-neon transition-all duration-300 group"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaDownload className="group-hover:animate-bounce" />
-              Get My Resume
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                📄
-              </motion.span>
-            </motion.a>
+            <p className="text-gray-600 dark:text-gray-400 text-center">
+              Click on my profile image above to download my resume
+            </p>
           </motion.div>
 
           {/* Enhanced Who Am I Section */}
