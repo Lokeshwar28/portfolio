@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import useTheme from '../hooks/useTheme';
 
@@ -6,10 +5,35 @@ const Header = () => {
   const { isDark, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      setMenuOpen(false); // Close mobile menu after clicking
+    }
+  };
+
+  const navItems = [
+    { id: 'home', name: 'Home' },
+    { id: 'about', name: 'About' },
+    { id: 'projects', name: 'Projects' },
+    { id: 'skills', name: 'Skills' },
+    { id: 'experience', name: 'Experience' },
+    { id: 'contact', name: 'Contact' }
+  ];
+
   return (
     <header className="bg-light dark:bg-secondary text-black dark:text-white p-4 flex flex-wrap justify-between items-center sticky top-0 z-50 transition-colors duration-300">
       <h1 className="text-xl font-bold tracking-wide">
-        <NavLink to="/" className="hover:text-accent text-black dark:text-white transition-colors">Lokeshwar <span className="text-accent">Reddy</span></NavLink>
+        <button 
+          onClick={() => scrollToSection('home')} 
+          className="hover:text-accent text-black dark:text-white transition-colors"
+        >
+          Lokeshwar <span className="text-accent">Reddy</span>
+        </button>
       </h1>
       <div className="md:hidden">
         <button
@@ -23,23 +47,15 @@ const Header = () => {
       </div>
       <nav className={`${menuOpen ? "block animate-fade-in" : "hidden"} w-full mt-4 md:mt-0 md:block md:w-auto transition-all duration-300`} role="navigation">
         <div className="flex flex-col md:flex-row">
-          {["/", "/about", "/projects", "/skills", "/education", "/contact"].map((path, idx) => {
-            const names = ["Home", "About", "Projects", "Skills", "Education", "Contact"];
-            return (
-              <NavLink
-                key={path}
-                to={path}
-                className={({ isActive }) =>
-                  isActive
-                    ? "mx-2 my-1 text-accent font-semibold"
-                    : "mx-2 my-1 hover:text-gray-600 dark:hover:text-gray-300"
-                }
-                aria-current={path === window.location.pathname ? "page" : undefined}
-              >
-                {names[idx]}
-              </NavLink>
-            );
-          })}
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="mx-2 my-1 hover:text-accent transition-colors text-left"
+            >
+              {item.name}
+            </button>
+          ))}
         </div>
       </nav>
       <button

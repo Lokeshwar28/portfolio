@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { Typewriter } from 'react-simple-typewriter';
 import { useInView } from 'react-intersection-observer';
-import SEO from '../components/SEO';
+import SEO from './SEO';
 
-const Home = () => {
+// Import existing page components that we'll convert to sections
+import About from '../pages/About';
+import Projects from '../pages/Projects';
+import Skills from '../pages/Skills';
+import Contact from '../pages/Contact';
+
+const SinglePageLayout = () => {
   const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Passionate Problem Solver"];
   
   const [heroRef, heroInView] = useInView({
@@ -52,11 +58,13 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="Home - Lokeshwar Reddy"
+        title="Lokeshwar Reddy - Full-Stack Developer"
         description="Full-Stack Web Developer specializing in React, Node.js, and AWS. Passionate about building scalable, modern web applications with cutting-edge technologies."
         keywords="Lokeshwar Reddy, Full-Stack Developer, React Developer, Node.js Developer, JavaScript, AWS, Web Development, Software Engineer"
       />
-      <div className="relative w-full min-h-screen overflow-hidden">
+      
+      {/* Home Section */}
+      <section id="home" className="relative w-full min-h-screen overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900">
           <div className="absolute inset-0 bg-[url('/stars.svg')] bg-cover opacity-20 animate-pulse-slow" />
@@ -218,9 +226,44 @@ const Home = () => {
             </motion.div>
           </div>
         </motion.div>
-      </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="min-h-screen">
+        <About />
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="min-h-screen">
+        <Projects />
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="min-h-screen">
+        <Skills />
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="min-h-screen">
+        {/* We'll create a new Experience component */}
+        <div className="w-full min-h-screen bg-light dark:bg-primary text-black dark:text-white px-4 py-8 sm:px-6 md:px-12 lg:px-20 flex flex-col items-center transition-colors duration-300">
+          <p className="text-center text-accent text-xl font-semibold mb-2">💼 My Professional Experience</p>
+          <h2 className="text-4xl font-bold text-center mb-10">Experience</h2>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-center text-gray-600 dark:text-gray-400 text-lg">
+              Currently seeking opportunities to apply my full-stack development skills in a professional environment.
+              My academic and project experience demonstrates proficiency in modern web development technologies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="min-h-screen">
+        <Contact />
+      </section>
     </>
   );
 };
 
-export default Home;
+export default SinglePageLayout;
