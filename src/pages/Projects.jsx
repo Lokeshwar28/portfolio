@@ -165,11 +165,6 @@ const Projects = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 {category}
-                {category === 'All' && (
-                  <span className="ml-2 text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-full">
-                    {projectList.length}
-                  </span>
-                )}
               </motion.button>
             ))}
           </div>
