@@ -72,7 +72,7 @@ I’m a Full-Stack Developer pursuing my Master's in Computer Science at Texas T
 
 ## 📫 Contact
 
-- 📧 Email: logumire@ttu.edu  
+- 📧 Email: lokeshwar2808@gmail.com  
 - 💼 LinkedIn: [linkedin.com/in/lokesh-reddy-g](https://www.linkedin.com/in/lokesh-reddy-g/)  
 - 🗂️ GitHub: [github.com/Lokeshwar28](https://github.com/Lokeshwar28)
 
