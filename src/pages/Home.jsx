@@ -44,13 +44,13 @@ const Home = () => {
               
             <img src="/icons/github.svg" alt="GitHub" className="w-6 h-6 hover:scale-110 transition duration-300" />
             </a>
-            <a href="https://www.linkedin.com/in/lokesh-reddy-g/" target="_blank" rel="noopener noreferrer">
+            {/* <a href="https://www.linkedin.com/in/lokesh-reddy-g/" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
            alt="LinkedIn" className="w-6 h-6 hover:scale-110 transition duration-300" />
-            </a>
-            <a href="/resume.pdf" download>
+            </a> */}
+            {/* <a href="/resume.pdf" download>
               <img src="/icons/resume.svg" alt="Resume" className="w-6 h-6 hover:scale-110 transition duration-300" />
-            </a>
+            </a> */}
           </div>
 
           <motion.div
