@@ -134,11 +134,11 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <img
-                src="/images/profile.png"
-                alt="Lokeshwar Reddy - Professional Software Engineer (Click to download resume)"
-                className="w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover group-hover:shadow-neon transition-all duration-300"
-              />
+              // <img
+              //   src="/images/profile.png"
+              //   alt="Lokeshwar Reddy - Professional Software Engineer (Click to download resume)"
+              //   className="w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover group-hover:shadow-neon transition-all duration-300"
+              // />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 rounded-full blur-xl opacity-30 -z-10 animate-pulse group-hover:opacity-50 transition-opacity duration-300" />
                */}
               {/* Download indicator on hover */}
