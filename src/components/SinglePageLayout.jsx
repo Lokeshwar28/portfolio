@@ -256,9 +256,9 @@ const SinglePageLayout = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="min-h-screen">
+      {/* <section id="contact" className="min-h-screen">
         <Contact />
-      </section>
+      </section> */}
     </>
   );
 };
