@@ -121,7 +121,7 @@ const About = () => {
           </div>
 
           {/* Profile Image with Enhanced Styling */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -140,7 +140,7 @@ const About = () => {
                 className="w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover group-hover:shadow-neon transition-all duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 rounded-full blur-xl opacity-30 -z-10 animate-pulse group-hover:opacity-50 transition-opacity duration-300" />
-              
+               */}
               {/* Download indicator on hover */}
               <motion.div
                 className="absolute inset-0 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
