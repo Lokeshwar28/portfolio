@@ -137,9 +137,9 @@ const SinglePageLayout = () => {
               className="flex justify-center gap-6 mb-8"
             >
               {[
-                { href: "https://github.com/Lokeshwar28", icon: "/icons/github.svg", alt: "GitHub" },
-                { href: "https://www.linkedin.com/in/lokesh-reddy-g/", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" },
-                { href: "/resume.pdf", icon: "/icons/resume.svg", alt: "Resume", download: true }
+                { href: "https://github.com/Lokeshwar28", icon: "/icons/github.svg", alt: "GitHub" }
+                // { href: "https://www.linkedin.com/in/lokesh-reddy-g/", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" },
+                // { href: "/resume.pdf", icon: "/icons/resume.svg", alt: "Resume", download: true }
               ].map((link, index) => (
                 <motion.a
                   key={index}
