@@ -28,53 +28,212 @@ import {
   SiEjs,
 } from "react-icons/si";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
-import SkillCardNew from "../components/SkillCardNew";
-import SEO from '../components/SEO';
+import { useInView } from "react-intersection-observer";
+import SkillBadge from "../components/SkillBadge";
+import SEO from "../components/SEO";
 
 const skillsData = [
-  // Languages
-  { name: "JavaScript (ES6+)", level: "expert", percentage: 95, icon: <FaJs className="text-yellow-300" />, category: "Languages" },
-  { name: "Python", level: "intermediate", percentage: 60, icon: <FaPython className="text-blue-500" />, category: "Languages" },
-  { name: "Java", level: "intermediate", percentage: 65, icon: <FaJava className="text-red-500" />, category: "Languages" },
-  { name: "TypeScript", level: "intermediate", percentage: 30, icon: <SiTypescript className="text-blue-500" />, category: "Languages" },
-  { name: "HTML5", level: "expert", percentage: 95, icon: <FaHtml5 className="text-orange-500" />, category: "Languages" },
-  { name: "CSS3", level: "expert", percentage: 90, icon: <FaCss3Alt className="text-blue-400" />, category: "Languages" },
+  // Languages - Primary Stack First
+  {
+    name: "Java",
+    icon: <FaJava className="text-red-500" />,
+    category: "Languages",
+  },
+  {
+    name: "JavaScript (ES6+)",
+    icon: <FaJs className="text-yellow-300" />,
+    category: "Languages",
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript className="text-blue-500" />,
+    category: "Languages",
+  },
+  {
+    name: "Python",
+    icon: <FaPython className="text-blue-500" />,
+    category: "Languages",
+  },
+  {
+    name: "HTML5",
+    icon: <FaHtml5 className="text-orange-500" />,
+    category: "Languages",
+  },
+  {
+    name: "CSS3",
+    icon: <FaCss3Alt className="text-blue-400" />,
+    category: "Languages",
+  },
+
+  // Backend - Primary Stack
+  {
+    name: "Spring Boot",
+    icon: <FaCode className="text-green-500" />,
+    category: "Backend",
+  },
+  {
+    name: "Node.js",
+    icon: <FaNodeJs className="text-green-400" />,
+    category: "Backend",
+  },
+  {
+    name: "Express.js",
+    icon: <SiExpress className="text-gray-300" />,
+    category: "Backend",
+  },
+  {
+    name: "RESTful APIs",
+    icon: <FaNodeJs className="text-green-400" />,
+    category: "Backend",
+  },
+  {
+    name: "Microservices",
+    icon: <FaTools className="text-accent" />,
+    category: "Backend",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql className="text-blue-500" />,
+    category: "Backend",
+  },
+  {
+    name: "Redis",
+    icon: <FaCode className="text-red-500" />,
+    category: "Backend",
+  },
+  {
+    name: "Kafka",
+    icon: <FaCode className="text-gray-800 dark:text-white" />,
+    category: "Backend",
+  },
+  {
+    name: "JWT",
+    icon: <SiJsonwebtokens className="text-red-500" />,
+    category: "Backend",
+  },
+  {
+    name: "OAuth 2.0",
+    icon: <FaReact className="text-cyan-400" />,
+    category: "Backend",
+  },
 
   // Frontend
-  { name: "React.js", level: "expert", percentage: 95, icon: <FaReact className="text-cyan-400" />, category: "Frontend" },
-  { name: "Redux", level: "advanced", percentage: 80, icon: <SiRedux className="text-purple-400" />, category: "Frontend" },
-  { name: "Tailwind CSS", level: "expert", percentage: 90, icon: <SiTailwindcss className="text-teal-300" />, category: "Frontend" },
-  { name: "Bootstrap", level: "advanced", percentage: 85, icon: <SiBootstrap className="text-purple-500" />, category: "Frontend" },
-  { name: "Responsive Design", level: "expert", percentage: 92, icon: <FaCss3Alt className="text-blue-400" />, category: "Frontend" },
-
-  // Backend
-  { name: "Node.js", level: "expert", percentage: 90, icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
-  { name: "Express.js", level: "expert", percentage: 88, icon: <SiExpress className="text-gray-300" />, category: "Backend" },
-  { name: "RESTful APIs", level: "expert", percentage: 92, icon: <FaNodeJs className="text-green-400" />, category: "Backend" },
-  { name: "PostgreSQL", level: "advanced", percentage: 85, icon: <SiPostgresql className="text-blue-500" />, category: "Backend" },
-  { name: "JWT", level: "advanced", percentage: 80, icon: <SiJsonwebtokens className="text-red-500" />, category: "Backend" },
-  { name: "OAuth", level: "intermediate", percentage: 65, icon: <FaReact className="text-cyan-400" />, category: "Backend" },
-  { name: "EJS", level: "advanced", percentage: 75, icon: <SiEjs className="text-green-600" />, category: "Backend" },
+  {
+    name: "React.js",
+    icon: <FaReact className="text-cyan-400" />,
+    category: "Frontend",
+  },
+  {
+    name: "Redux",
+    icon: <SiRedux className="text-purple-400" />,
+    category: "Frontend",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <SiTailwindcss className="text-teal-300" />,
+    category: "Frontend",
+  },
+  {
+    name: "Bootstrap",
+    icon: <SiBootstrap className="text-purple-500" />,
+    category: "Frontend",
+  },
+  {
+    name: "Responsive Design",
+    icon: <FaCss3Alt className="text-blue-400" />,
+    category: "Frontend",
+  },
 
   // Cloud & DevOps
-  { name: "AWS (EC2, S3, Lambda, CloudFront)", level: "advanced", percentage: 80, icon: <FaAws className="text-orange-300" />, category: "Cloud & DevOps" },
-  { name: "Docker", level: "intermediate", percentage: 70, icon: <FaDocker className="text-blue-300" />, category: "Cloud & DevOps" },
-  { name: "GitHub Actions", level: "intermediate", percentage: 65, icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
-  { name: "CI/CD", level: "intermediate", percentage: 70, icon: <FaGithub className="text-gray-800 dark:text-white" />, category: "Cloud & DevOps" },
+  {
+    name: "AWS (EC2, ECS, S3, Lambda)",
+    icon: <FaAws className="text-orange-300" />,
+    category: "Cloud & DevOps",
+  },
+  {
+    name: "Docker",
+    icon: <FaDocker className="text-blue-300" />,
+    category: "Cloud & DevOps",
+  },
+  {
+    name: "GitHub Actions",
+    icon: <FaGithub className="text-gray-800 dark:text-white" />,
+    category: "Cloud & DevOps",
+  },
+  {
+    name: "CI/CD Pipelines",
+    icon: <FaGithub className="text-gray-800 dark:text-white" />,
+    category: "Cloud & DevOps",
+  },
+  {
+    name: "CloudFormation",
+    icon: <FaAws className="text-orange-300" />,
+    category: "Cloud & DevOps",
+  },
 
   // Tools
-  { name: "Postman", level: "advanced", percentage: 85, icon: <SiPostman className="text-orange-500" />, category: "Tools" },
-  { name: "VS Code", level: "expert", percentage: 95, icon: <FaCode className="text-blue-500" />, category: "Tools" },
-  { name: "Axios", level: "advanced", percentage: 88, icon: <SiAxios className="text-purple-500" />, category: "Tools" },
-  { name: "Render", level: "advanced", percentage: 80, icon: <SiRender className="text-green-500" />, category: "Tools" },
-  { name: "Vercel", level: "advanced", percentage: 85, icon: <SiVercel className="text-gray-800 dark:text-white" />, category: "Tools" },
+  {
+    name: "Maven",
+    icon: <FaTools className="text-red-600" />,
+    category: "Tools",
+  },
+  {
+    name: "JUnit",
+    icon: <FaCode className="text-green-600" />,
+    category: "Tools",
+  },
+  {
+    name: "Postman",
+    icon: <SiPostman className="text-orange-500" />,
+    category: "Tools",
+  },
+  {
+    name: "VS Code",
+    icon: <FaCode className="text-blue-500" />,
+    category: "Tools",
+  },
+  {
+    name: "Axios",
+    icon: <SiAxios className="text-purple-500" />,
+    category: "Tools",
+  },
+  {
+    name: "Render",
+    icon: <SiRender className="text-green-500" />,
+    category: "Tools",
+  },
+  {
+    name: "Vercel",
+    level: "advanced",
+    icon: <SiVercel className="text-gray-800 dark:text-white" />,
+    category: "Tools",
+  },
 
   // Practices
-  { name: "Agile/Scrum", level: "advanced", percentage: 85, icon: <FaGitAlt className="text-red-400" />, category: "Practices" },
-  { name: "MVC Architecture", level: "advanced", percentage: 65, icon: <FaNodeJs className="text-green-400" />, category: "Practices" },
-  { name: "CRUD Operations", level: "expert", percentage: 95, icon: <SiPostgresql className="text-blue-500" />, category: "Practices" },
-  { name: "API Integration", level: "expert", percentage: 92, icon: <SiAxios className="text-purple-500" />, category: "Practices" },
+  {
+    name: "Agile/Scrum",
+    level: "advanced",
+    icon: <FaGitAlt className="text-red-400" />,
+    category: "Practices",
+  },
+  {
+    name: "MVC Architecture",
+    level: "intermediate",
+    icon: <FaNodeJs className="text-green-400" />,
+    category: "Practices",
+  },
+  {
+    name: "CRUD Operations",
+    level: "expert",
+    icon: <SiPostgresql className="text-blue-500" />,
+    category: "Practices",
+  },
+  {
+    name: "API Integration",
+    level: "expert",
+    icon: <SiAxios className="text-purple-500" />,
+    category: "Practices",
+  },
 ];
 
 const groupedSkills = skillsData.reduce((acc, skill) => {
@@ -98,122 +257,174 @@ const Skills = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Skills - Lokeshwar Reddy"
-        description="Technical skills and proficiency levels in React, Node.js, AWS, PostgreSQL, and modern web development technologies."
-        keywords="React Skills, Node.js Expert, AWS Developer, PostgreSQL, JavaScript, TypeScript, Web Development Skills"
+        description="Full-stack software engineer at JPMorgan Chase specializing in Java, Spring Boot, React, TypeScript, microservices, AWS, PostgreSQL, Redis, and Kafka for high-volume financial systems."
+        keywords="Java Expert, Spring Boot, React Developer, TypeScript, Microservices, AWS, PostgreSQL, Redis, Kafka, Full Stack Engineer, Software Engineer"
       />
-      
-      <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 px-4 py-8 sm:px-6 md:px-12 lg:px-20 transition-colors duration-300">
-        {/* Header Section */}
+
+      <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-teal-50 dark:from-primary dark:via-secondary dark:to-tertiary px-4 py-16 sm:px-6 md:px-12 lg:px-20 transition-colors duration-500">
+        {/* Header Section - Premium Minimal */}
         <motion.div
           ref={headerRef}
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-20"
         >
-          <div className="relative inline-block">
-            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={headerInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-block"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-accent via-highlight to-teal-500 bg-clip-text text-transparent mb-4 tracking-tight">
               Technical Skills
-            </h2>
-            <motion.div
-              className="absolute -inset-4 bg-glass backdrop-blur-xs rounded-2xl border border-white/10 shadow-glass-inset -z-10"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-          </div>
-          
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            🛠️ Proficiency levels in modern web development technologies and tools
-          </p>
+            </h1>
+            <div className="h-1 w-24 bg-gradient-to-r from-accent to-highlight mx-auto rounded-full" />
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={headerInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mt-6 font-light"
+          >
+            Full-stack expertise across Java, Spring Boot, React, TypeScript,
+            and cloud infrastructure
+          </motion.p>
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* Skills Grid - Premium Layout */}
         <motion.div
           ref={skillsRef}
           initial={{ opacity: 0 }}
           animate={skillsInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-7xl mx-auto"
+          transition={{ duration: 0.5 }}
+          className="max-w-[1400px] mx-auto"
         >
-          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
-            {Object.entries(groupedSkills).map(([category, skills], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 50 }}
-                animate={skillsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-                className="relative group"
-              >
-                {/* Category Card */}
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-glass border border-white/20 dark:border-gray-700/20 group-hover:shadow-neon transition-all duration-300 h-full">
-                  {/* Category Header */}
-                  <div className="flex items-center justify-center mb-8">
-                    <motion.h3
-                      className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-center"
-                      whileHover={{ scale: 1.05 }}
+          <div className="grid gap-12 lg:gap-16">
+            {Object.entries(groupedSkills).map(
+              ([category, skills], categoryIndex) => (
+                <motion.section
+                  key={category}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={skillsInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    duration: 0.5,
+                    delay: categoryIndex * 0.1,
+                    ease: "easeOut",
+                  }}
+                  className="group"
+                  aria-labelledby={`category-${category.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  {/* Category Header - Clean & Professional */}
+                  <div className="mb-8">
+                    <motion.h2
+                      id={`category-${category.toLowerCase().replace(/\s+/g, "-")}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={skillsInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: categoryIndex * 0.1 + 0.2 }}
+                      className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent mb-2 tracking-tight"
                     >
                       {category}
-                    </motion.h3>
+                    </motion.h2>
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={skillsInView ? { scaleX: 1 } : {}}
+                      transition={{
+                        delay: categoryIndex * 0.1 + 0.3,
+                        duration: 0.6,
+                      }}
+                      className="h-0.5 w-16 bg-gradient-to-r from-accent to-highlight origin-left rounded-full"
+                    />
                   </div>
 
-                  {/* Skills Grid */}
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  {/* Skills Grid - Perfect Spacing & Alignment */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                     {skills.map((skill, skillIndex) => (
-                      <SkillCardNew
+                      <SkillBadge
                         key={skill.name}
-                        skill={skill.name}
-                        level={skill.level}
-                        percentage={skill.percentage}
+                        name={skill.name}
                         icon={skill.icon}
-                        delay={categoryIndex * 0.2 + skillIndex * 0.1}
+                        delay={categoryIndex * 0.05 + skillIndex * 0.02}
                       />
                     ))}
                   </div>
-                </div>
-
-                {/* Floating decoration */}
-                <motion.div
-                  className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                />
-              </motion.div>
-            ))}
+                </motion.section>
+              ),
+            )}
           </div>
         </motion.div>
 
-        {/* Additional Info Section */}
+        {/* Current Focus Section - Premium Card */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={skillsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-24 max-w-[1400px] mx-auto"
         >
-          <div className="max-w-4xl mx-auto bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 shadow-glass border border-white/20">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-              Continuous Learning Journey
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              I&apos;m constantly expanding my skill set and staying updated with the latest technologies. 
-              Currently exploring advanced cloud architectures, microservices, and emerging frontend frameworks 
-              to build even more efficient and scalable applications.
-            </p>
-            
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {["Next.js", "Kubernetes", "GraphQL", "Prisma", "Serverless"].map((tech, index) => (
-                <motion.span
-                  key={tech}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full text-sm font-medium shadow-lg hover:shadow-neon transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1 }}
-                >
-                  {tech} 🚀
-                </motion.span>
-              ))}
+          <div className="relative bg-gradient-to-br from-white/90 to-slate-50/90 dark:from-tertiary/90 dark:to-secondary/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-slate-200/80 dark:border-slate-700/80 shadow-glass overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/10 to-highlight/10 rounded-full blur-3xl -z-0" />
+
+            <div className="relative z-10">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent to-highlight rounded-lg flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                  JP
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                    Currently at JPMorgan Chase
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm font-medium">
+                    Software Engineer • Financial Systems
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-8 text-base md:text-lg">
+                Building high-volume financial systems processing{" "}
+                <strong className="text-slate-900 dark:text-white font-semibold">
+                  50,000+ daily transactions
+                </strong>{" "}
+                using microservices architecture. Focused on delivering{" "}
+                <strong className="text-slate-900 dark:text-white font-semibold">
+                  99.8% uptime
+                </strong>
+                ,{" "}
+                <strong className="text-slate-900 dark:text-white font-semibold">
+                  40% latency reductions
+                </strong>
+                , and scalable solutions with Java, Spring Boot, React, and
+                cloud technologies.
+              </p>
+
+              <div>
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-4 uppercase tracking-wider">
+                  Currently Exploring
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "Kubernetes",
+                    "Next.js",
+                    "GraphQL",
+                    "Terraform",
+                    "AWS Lambda",
+                  ].map((tech, index) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1 + index * 0.1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="px-4 py-2 bg-white/80 dark:bg-tertiary/80 backdrop-blur-sm text-slate-900 dark:text-slate-100 rounded-lg text-sm font-medium border border-slate-200/80 dark:border-slate-700/80 hover:border-accent dark:hover:border-highlight hover:shadow-lg hover:shadow-accent/10 transition-all duration-300"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

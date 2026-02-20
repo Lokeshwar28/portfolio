@@ -1,233 +1,427 @@
 import { motion } from "framer-motion";
-import { Typewriter } from 'react-simple-typewriter';
-import { useInView } from 'react-intersection-observer';
-import SEO from './SEO';
+import { Typewriter } from "react-simple-typewriter";
+import SEO from "./SEO";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaDownload,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaArrowRight,
+  FaCode,
+  FaRocket,
+  FaAws,
+} from "react-icons/fa";
+import {
+  SiSpring,
+  SiReact,
+  SiTypescript,
+  SiPostgresql,
+  SiDocker,
+} from "react-icons/si";
 
 // Import existing page components that we'll convert to sections
-import About from '../pages/About';
-import Projects from '../pages/Projects';
-import Skills from '../pages/Skills';
-import Experience from '../pages/Experience';
-import Certifications from '../pages/Certifications';
-import Contact from '../pages/Contact';
+import About from "../pages/About";
+import Projects from "../pages/Projects";
+import Skills from "../pages/Skills";
+import Experience from "../pages/Experience";
+import Certifications from "../pages/Certifications";
+import Contact from "../pages/Contact";
 
 const SinglePageLayout = () => {
-  const titles = ["Full-Stack Web Developer", "React & Node.js Expert", "Recent Computer Science Graduate"];
-  
-  const [heroRef, heroInView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
+  const titles = [
+    "Software Engineer @ JPMorgan Chase",
+    "Full-Stack Developer",
+    "Microservices Architect",
+    "Financial Systems Engineer",
+  ];
 
-  const [skillsRef, skillsInView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
+  const techStack = [
+    {
+      icon: <SiSpring size={40} />,
+      name: "Spring Boot",
+      color: "text-green-500",
     },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
+    { icon: <SiReact size={40} />, name: "React", color: "text-cyan-400" },
+    {
+      icon: <SiTypescript size={40} />,
+      name: "TypeScript",
+      color: "text-blue-400",
     },
-  };
+    {
+      icon: <SiPostgresql size={40} />,
+      name: "PostgreSQL",
+      color: "text-blue-500",
+    },
+    { icon: <SiDocker size={40} />, name: "Docker", color: "text-blue-300" },
+    { icon: <FaAws size={40} />, name: "AWS", color: "text-orange-400" },
+  ];
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Lokeshwar Reddy - Full-Stack Developer"
         description="Full-Stack Web Developer specializing in React, Node.js, and AWS. Passionate about building scalable, modern web applications with cutting-edge technologies."
         keywords="Lokeshwar Reddy, Full-Stack Developer, React Developer, Node.js Developer, JavaScript, AWS, Web Development, Software Engineer"
       />
-      
+
       {/* Home Section */}
-      <section id="home" className="relative w-full min-h-screen overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900">
-          <div className="absolute inset-0 bg-[url('/stars.svg')] bg-cover opacity-20 animate-pulse-slow" />
-          
-          {/* Glassmorphism floating elements */}
+      <section
+        id="home"
+        className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-cyan-50 to-teal-50 dark:from-primary dark:via-secondary dark:to-tertiary transition-colors duration-500"
+      >
+        {/* Animated Background Gradients - Subtle animations for better UX */}
+        <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute top-20 left-10 w-32 h-32 bg-glass backdrop-blur-sm rounded-full border border-white/20 shadow-glass"
-            animate={{ y: [-20, 20, -20], rotate: [0, 180, 360] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-accent/20 to-highlight/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.05, 1],
+              rotate: [0, 5, 0],
+            }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
           <motion.div
-            className="absolute top-40 right-20 w-24 h-24 bg-glass backdrop-blur-sm rounded-full border border-white/20 shadow-glass"
-            animate={{ y: [20, -20, 20], rotate: [360, 180, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-20 left-20 w-20 h-20 bg-glass backdrop-blur-sm rounded-full border border-white/20 shadow-glass"
-            animate={{ y: [-15, 15, -15], x: [-10, 10, -10] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-highlight/20 to-accent/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.05, 1, 1.05],
+              rotate: [5, 0, 5],
+            }}
+            transition={{
+              duration: 50,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
         </div>
 
-        {/* Main Content */}
-        <motion.div
-          ref={heroRef}
-          className="relative z-10 w-full min-h-screen flex items-center justify-center px-4 py-8 sm:px-6 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          animate={heroInView ? "visible" : "hidden"}
-        >
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Hero Title */}
-            <motion.div
-              variants={itemVariants}
-              className="relative"
-            >
-              <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
-                Hey, I&apos;m Lokesh 👋
-              </h1>
-              
-              {/* Glassmorphism card behind title */}
-              <div className="absolute inset-0 -z-10 bg-glass backdrop-blur-xs rounded-2xl border border-white/10 shadow-glass-inset transform scale-110" />
-            </motion.div>
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
-            {/* Hero Image with floating animation */}
-            <motion.div
-              variants={itemVariants}
-              className="my-8 flex justify-center"
-            >
+        <div className="relative z-10 w-full min-h-screen px-4 py-16 sm:px-6 md:px-12 lg:px-20 flex items-center justify-center">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Main Content */}
               <motion.div
-                variants={floatingVariants}
-                animate="animate"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                {/* Greeting Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-tertiary/80 backdrop-blur-sm rounded-full border border-accent/20 shadow-lg"
+                >
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+                  </span>
+                  <span className="text-sm font-medium text-slate-700 dark:text-textSecondary">
+                    Available for opportunities
+                  </span>
+                </motion.div>
+
+                {/* Name & Title */}
+                <div>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-textPrimary leading-tight"
+                  >
+                    Lokeshwar{" "}
+                    <span className="bg-gradient-to-r from-accent via-highlight to-teal-500 bg-clip-text text-transparent animate-gradient">
+                      Reddy
+                    </span>
+                  </motion.h1>
+
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    className="mt-4 text-2xl md:text-3xl font-semibold text-accent dark:text-highlight h-12"
+                  >
+                    <Typewriter
+                      words={titles}
+                      loop={0}
+                      cursor
+                      cursorStyle="|"
+                      typeSpeed={60}
+                      deleteSpeed={40}
+                      delaySpeed={2000}
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="text-lg md:text-xl text-slate-600 dark:text-textSecondary leading-relaxed"
+                >
+                  Full-stack software engineer building{" "}
+                  <span className="font-semibold text-accent dark:text-highlight">
+                    high-volume financial systems
+                  </span>{" "}
+                  that process{" "}
+                  <span className="font-semibold text-accent dark:text-highlight">
+                    50,000+ daily transactions
+                  </span>
+                  . Specialized in microservices architecture and performance
+                  optimization.
+                </motion.p>
+
+                {/* Contact Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                  className="flex flex-wrap items-center gap-6 text-slate-600 dark:text-textMuted"
+                >
+                  <div className="flex items-center gap-2">
+                    <FaMapMarkerAlt className="text-accent" />
+                    <span>United States</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FaEnvelope className="text-highlight" />
+                    <a
+                      href="mailto:gummireddy2808@gmail.com"
+                      className="hover:text-accent transition-colors"
+                    >
+                      gummireddy2808@gmail.com
+                    </a>
+                  </div>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  <motion.button
+                    onClick={() => scrollToSection("projects")}
+                    className="group px-8 py-4 bg-gradient-to-r from-accent to-highlight text-white font-semibold rounded-xl shadow-lg hover:shadow-neon transition-all duration-300 flex items-center gap-2"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <FaRocket className="group-hover:animate-bounce" />
+                    View My Work
+                    <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+
+                  <motion.button
+                    onClick={() => scrollToSection("contact")}
+                    className="px-8 py-4 bg-white/80 dark:bg-tertiary/80 backdrop-blur-sm border-2 border-accent/50 text-accent dark:text-highlight font-semibold rounded-xl hover:bg-accent/10 dark:hover:bg-accent/10 transition-all duration-300 flex items-center gap-2"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <FaEnvelope />
+                    Get In Touch
+                  </motion.button>
+                </motion.div>
+
+                {/* Social Links */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.3 }}
+                  className="flex items-center gap-4"
+                >
+                  <a
+                    href="https://github.com/Lokeshwar28"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-tertiary/80 backdrop-blur-sm rounded-full text-slate-700 dark:text-textSecondary hover:bg-gradient-to-r hover:from-accent hover:to-highlight hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  >
+                    <FaGithub size={20} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/lokesh-reddy-g/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-tertiary/80 backdrop-blur-sm rounded-full text-slate-700 dark:text-textSecondary hover:bg-gradient-to-r hover:from-accent hover:to-highlight hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  >
+                    <FaLinkedin size={20} />
+                  </a>
+                  <a
+                    href="/Lokeshwar_Reddy_Resume.pdf"
+                    download="Lokeshwar_Reddy_Resume.pdf"
+                    className="flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-tertiary/80 backdrop-blur-sm rounded-full text-slate-700 dark:text-textSecondary hover:bg-gradient-to-r hover:from-accent hover:to-highlight hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    aria-label="Download resume as PDF"
+                  >
+                    <FaDownload size={16} />
+                    <span className="text-sm font-medium">Resume</span>
+                  </a>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Column - Tech Stack Showcase */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 className="relative"
               >
-                <img 
-                  src="/hero-dev.svg" 
-                  alt="Developer Illustration" 
-                  className="w-64 md:w-80 lg:w-96 drop-shadow-2xl filter brightness-110"
+                {/* Floating Card */}
+                <div className="relative bg-white/60 dark:bg-tertiary/60 backdrop-blur-xl rounded-3xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl">
+                  {/* Glow Effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-accent to-highlight rounded-3xl blur opacity-20 animate-pulse-slow" />
+
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-8">
+                      <FaCode className="text-accent text-2xl" />
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-textPrimary">
+                        Tech Stack
+                      </h3>
+                    </div>
+
+                    {/* Tech Icons Grid */}
+                    <div className="grid grid-cols-3 gap-6">
+                      {techStack.map((tech, index) => (
+                        <motion.div
+                          key={tech.name}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 1.5 + index * 0.08,
+                            ease: "easeOut",
+                          }}
+                          whileHover={{
+                            scale: 1.1,
+                            transition: { duration: 0.2 },
+                          }}
+                          className="group relative"
+                        >
+                          <div className="relative flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-secondary/80 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 hover:border-accent/50 dark:hover:border-highlight/50 transition-all duration-300 hover:shadow-lg cursor-pointer">
+                            <div
+                              className={`${tech.color} group-hover:scale-110 transition-transform duration-300`}
+                            >
+                              {tech.icon}
+                            </div>
+                            <span className="mt-3 text-xs font-semibold text-slate-700 dark:text-textSecondary text-center">
+                              {tech.name}
+                            </span>
+
+                            {/* Hover Glow */}
+                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-accent/0 to-highlight/0 group-hover:from-accent/10 group-hover:to-highlight/10 transition-all duration-300" />
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Stats */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 2.2 }}
+                      className="mt-8 grid grid-cols-3 gap-4"
+                    >
+                      <div className="text-center p-4 bg-gradient-to-br from-accent/10 to-highlight/10 rounded-xl border border-accent/20">
+                        <div className="text-2xl font-bold text-accent dark:text-highlight">
+                          3+
+                        </div>
+                        <div className="text-xs text-slate-600 dark:text-textMuted mt-1">
+                          Years Exp
+                        </div>
+                      </div>
+                      <div className="text-center p-4 bg-gradient-to-br from-accent/10 to-highlight/10 rounded-xl border border-accent/20">
+                        <div className="text-2xl font-bold text-accent dark:text-highlight">
+                          50K+
+                        </div>
+                        <div className="text-xs text-slate-600 dark:text-textMuted mt-1">
+                          Transactions
+                        </div>
+                      </div>
+                      <div className="text-center p-4 bg-gradient-to-br from-accent/10 to-highlight/10 rounded-xl border border-accent/20">
+                        <div className="text-2xl font-bold text-accent dark:text-highlight">
+                          40%
+                        </div>
+                        <div className="text-xs text-slate-600 dark:text-textMuted mt-1">
+                          Performance ↑
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Floating Decorative Elements */}
+                <motion.div
+                  className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-accent to-highlight rounded-full blur-2xl opacity-40"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.4, 0.6, 0.4],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 />
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 rounded-full blur-2xl opacity-20 -z-10" />
+                <motion.div
+                  className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-highlight to-accent rounded-full blur-2xl opacity-30"
+                  animate={{
+                    scale: [1.2, 1, 1.2],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </motion.div>
+            </div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 2.5 }}
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="flex flex-col items-center gap-2 text-slate-400 dark:text-textMuted"
+              >
+                <span className="text-sm font-medium">Scroll to explore</span>
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
               </motion.div>
             </motion.div>
-
-            {/* Social Links with enhanced styling */}
-            <motion.div
-              variants={itemVariants}
-              className="flex justify-center gap-6 mb-8"
-            >
-              {[
-                { href: "https://github.com/Lokeshwar28", icon: "/icons/github.svg", alt: "GitHub" }
-                // { href: "https://www.linkedin.com/in/lokesh-reddy-g/", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" },
-                // { href: "/resume.pdf", icon: "/icons/resume.svg", alt: "Resume", download: true }
-              ].map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  target={link.download ? undefined : "_blank"}
-                  rel={link.download ? undefined : "noopener noreferrer"}
-                  download={link.download || undefined}
-                  className="group relative p-3 bg-glass backdrop-blur-sm rounded-xl border border-white/20 shadow-glass hover:shadow-neon transition-all duration-300"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <img 
-                    src={link.icon} 
-                    alt={link.alt} 
-                    className="w-6 h-6 group-hover:brightness-110 transition-all duration-300" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                </motion.a>
-              ))}
-            </motion.div>
-
-            {/* Typewriter Effect */}
-            <motion.div
-              variants={itemVariants}
-              className="mb-6"
-            >
-              <div className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 min-h-[3rem] flex items-center justify-center">
-                <Typewriter
-                  words={titles}
-                  loop={0}
-                  cursor
-                  cursorStyle="|"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={1500}
-                />
-              </div>
-            </motion.div>
-
-            {/* Description */}
-            <motion.div
-              variants={itemVariants}
-              className="max-w-4xl mx-auto mb-8"
-            >
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                Recent CS graduate from Texas Tech University, actively seeking Software Engineer opportunities.
-              </p>
-              <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Specializing in building performant, scalable full-stack applications with React, Node.js, and AWS.
-              </p>
-            </motion.div>
-
-            {/* Tech Stack Icons */}
-            <motion.div
-              ref={skillsRef}
-              variants={itemVariants}
-              className="flex justify-center gap-8 mb-10"
-            >
-              {[
-                { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg", alt: "React" },
-                { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg", alt: "Node.js" },
-                { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg", alt: "PostgreSQL" }
-              ].map((tech, index) => (
-                <motion.div
-                  key={index}
-                  className="relative group"
-                  animate={skillsInView ? { 
-                    y: [0, -10, 0],
-                    rotateY: [0, 180, 360] 
-                  } : {}}
-                  transition={{ 
-                    duration: 3,
-                    delay: index * 0.2,
-                    repeat: Infinity,
-                    repeatDelay: 2 
-                  }}
-                >
-                  <img 
-                    src={tech.src} 
-                    alt={tech.alt} 
-                    className="w-12 h-12 md:w-14 md:h-14 group-hover:scale-110 transition-transform duration-300 filter group-hover:brightness-110" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-300" />
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* About Section */}
@@ -256,9 +450,9 @@ const SinglePageLayout = () => {
       </section>
 
       {/* Contact Section */}
-      {/* <section id="contact" className="min-h-screen">
+      <section id="contact" className="min-h-screen">
         <Contact />
-      </section> */}
+      </section>
     </>
   );
 };

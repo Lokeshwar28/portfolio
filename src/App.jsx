@@ -1,6 +1,7 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
-import SinglePageLayout from './components/SinglePageLayout';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import SinglePageLayout from "./components/SinglePageLayout";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <SinglePageLayout />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

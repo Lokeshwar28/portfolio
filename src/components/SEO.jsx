@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 const SEO = ({ title, description, keywords, author = "Lokeshwar Reddy" }) => {
   useEffect(() => {
@@ -8,10 +9,10 @@ const SEO = ({ title, description, keywords, author = "Lokeshwar Reddy" }) => {
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', description);
+      metaDescription.setAttribute("content", description);
     } else {
-      const newMetaDescription = document.createElement('meta');
-      newMetaDescription.name = 'description';
+      const newMetaDescription = document.createElement("meta");
+      newMetaDescription.name = "description";
       newMetaDescription.content = description;
       document.head.appendChild(newMetaDescription);
     }
@@ -19,10 +20,10 @@ const SEO = ({ title, description, keywords, author = "Lokeshwar Reddy" }) => {
     // Update meta keywords
     const metaKeywords = document.querySelector('meta[name="keywords"]');
     if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords);
+      metaKeywords.setAttribute("content", keywords);
     } else {
-      const newMetaKeywords = document.createElement('meta');
-      newMetaKeywords.name = 'keywords';
+      const newMetaKeywords = document.createElement("meta");
+      newMetaKeywords.name = "keywords";
       newMetaKeywords.content = keywords;
       document.head.appendChild(newMetaKeywords);
     }
@@ -30,10 +31,10 @@ const SEO = ({ title, description, keywords, author = "Lokeshwar Reddy" }) => {
     // Update meta author
     const metaAuthor = document.querySelector('meta[name="author"]');
     if (metaAuthor) {
-      metaAuthor.setAttribute('content', author);
+      metaAuthor.setAttribute("content", author);
     } else {
-      const newMetaAuthor = document.createElement('meta');
-      newMetaAuthor.name = 'author';
+      const newMetaAuthor = document.createElement("meta");
+      newMetaAuthor.name = "author";
       newMetaAuthor.content = author;
       document.head.appendChild(newMetaAuthor);
     }
@@ -41,20 +42,22 @@ const SEO = ({ title, description, keywords, author = "Lokeshwar Reddy" }) => {
     // Open Graph tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', title);
+      ogTitle.setAttribute("content", title);
     } else {
-      const newOgTitle = document.createElement('meta');
-      newOgTitle.setAttribute('property', 'og:title');
+      const newOgTitle = document.createElement("meta");
+      newOgTitle.setAttribute("property", "og:title");
       newOgTitle.content = title;
       document.head.appendChild(newOgTitle);
     }
 
-    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogDescription = document.querySelector(
+      'meta[property="og:description"]',
+    );
     if (ogDescription) {
-      ogDescription.setAttribute('content', description);
+      ogDescription.setAttribute("content", description);
     } else {
-      const newOgDescription = document.createElement('meta');
-      newOgDescription.setAttribute('property', 'og:description');
+      const newOgDescription = document.createElement("meta");
+      newOgDescription.setAttribute("property", "og:description");
       newOgDescription.content = description;
       document.head.appendChild(newOgDescription);
     }
@@ -62,26 +65,35 @@ const SEO = ({ title, description, keywords, author = "Lokeshwar Reddy" }) => {
     // Twitter Card tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', title);
+      twitterTitle.setAttribute("content", title);
     } else {
-      const newTwitterTitle = document.createElement('meta');
-      newTwitterTitle.name = 'twitter:title';
+      const newTwitterTitle = document.createElement("meta");
+      newTwitterTitle.name = "twitter:title";
       newTwitterTitle.content = title;
       document.head.appendChild(newTwitterTitle);
     }
 
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    const twitterDescription = document.querySelector(
+      'meta[name="twitter:description"]',
+    );
     if (twitterDescription) {
-      twitterDescription.setAttribute('content', description);
+      twitterDescription.setAttribute("content", description);
     } else {
-      const newTwitterDescription = document.createElement('meta');
-      newTwitterDescription.name = 'twitter:description';
+      const newTwitterDescription = document.createElement("meta");
+      newTwitterDescription.name = "twitter:description";
       newTwitterDescription.content = description;
       document.head.appendChild(newTwitterDescription);
     }
   }, [title, description, keywords, author]);
 
   return null; // This component doesn't render anything
+};
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  keywords: PropTypes.string.isRequired,
+  author: PropTypes.string,
 };
 
 export default SEO;
