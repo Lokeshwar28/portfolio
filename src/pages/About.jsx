@@ -38,7 +38,7 @@ const About = () => {
     name: "About Lokeshwar Reddy - Software Engineer",
     url: `${window.location.origin}/about`,
     description:
-      "Full-stack software engineer with 3+ years building high-volume financial systems at JPMorgan Chase. Specialized in microservices, performance optimization, and scalable system design.",
+      "Full-stack software engineer with 5+ years building high-volume financial systems at JPMorgan Chase. Specialized in microservices, performance optimization, and scalable system design.",
     author: "Lokeshwar Reddy",
   });
 
@@ -47,7 +47,7 @@ const About = () => {
       <StructuredData type="profilePage" data={profileSchema} />
       <SEO
         title="About - Lokeshwar Reddy"
-        description="Full-stack software engineer with 3+ years building high-volume financial systems at JPMorgan Chase. MS in Computer Science from Texas Tech University. Specialized in microservices, performance optimization, and scalable system design."
+        description="Full-stack software engineer with 5+ years building high-volume financial systems at JPMorgan Chase. MS in Computer Science from Texas Tech University. Specialized in microservices, performance optimization, and scalable system design."
         keywords="About Lokeshwar Reddy, JPMorgan Chase, Software Engineer, Texas Tech University, Full-Stack Developer, Microservices, Spring Boot, React"
       />
 
@@ -115,7 +115,7 @@ const About = () => {
               <span className="font-semibold text-accent dark:text-highlight">
                 full-stack software engineer
               </span>{" "}
-              with 3+ years of experience building high-volume financial systems
+              with 5+ years of experience building high-volume financial systems
               that process{" "}
               <span className="font-semibold">50,000+ daily transactions</span>{" "}
               at JPMorgan Chase. I specialize in performance optimization and

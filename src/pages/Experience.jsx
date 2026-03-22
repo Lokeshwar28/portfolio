@@ -55,7 +55,7 @@ const Experience = () => {
         company: "Texas Tech University",
         location: "Lubbock, TX",
         duration: "Sep 2023 - Jul 2024",
-        type: "Full-time",
+        type: "Part-time",
         description:
           "Owned full-stack development of internal IT service management platform supporting 500+ daily campus support tickets with focus on database optimization and reporting.",
         achievements: [
@@ -77,11 +77,11 @@ const Experience = () => {
         ],
       },
       {
-        title: "Software Engineer Intern",
+        title: "Software Engineer",
         company: "Citi Bank",
         location: "India",
-        duration: "May 2022 - Jun 2023",
-        type: "Internship",
+        duration: "Jan 2021 - Jul 2023",
+        type: "Full-Time",
         description:
           "Developed secure transaction processing APIs and customer-facing React components for retail banking applications with focus on security and performance.",
         achievements: [
@@ -217,7 +217,7 @@ const Experience = () => {
     <>
       <SEO
         title="Experience - Lokeshwar Reddy"
-        description="3+ years of professional software engineering experience at JPMorgan Chase, Texas Tech University, and Citi Bank. Specialized in full-stack development, microservices architecture, and financial systems."
+        description="5+ years of professional software engineering experience at JPMorgan Chase, Texas Tech University, and Citi Bank. Specialized in full-stack development, microservices architecture, and financial systems."
         keywords="JPMorgan Chase, Citi Bank, Texas Tech University, Software Engineer, Full Stack Developer, Microservices, Java, Spring Boot, React, Financial Systems"
       />
 
